@@ -7,3 +7,15 @@
     <router-view />
   </div>
 </template>
+
+<script>
+// import bootswatch from "../src/assets/bootstrap.min.css"
+
+</script>
+
+
+<style>
+
+
+
+</style>
