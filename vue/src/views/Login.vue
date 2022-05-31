@@ -31,9 +31,9 @@
         v-model="user.password"
         required
       />
-      <button type="submit">Sign in</button>
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+    <router-link :to="{ name: 'register' }">Need an account?</router-link>
   </div>
 </template>
 
@@ -74,3 +74,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: solid 1px;
+}
+
+</style>
