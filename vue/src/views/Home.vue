@@ -2,6 +2,9 @@
   <div class="home">
     <header>
       <h1 id="welcome">Let's Get Moving!</h1>
+      <div id="addkid">
+      <router-link :to="{name: 'addKid'}">+ Add Kid</router-link>
+      </div>
     </header>
     <kid-cards></kid-cards>
     <kid-cards></kid-cards>
@@ -46,6 +49,11 @@ kid-cards {
 #welcome {
   text-align: center;
   margin: 50px;
+}
+#addkid{
+  text-align: center;
+  font-size: 2em;
+
 }
 
 

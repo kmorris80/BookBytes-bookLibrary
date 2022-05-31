@@ -3,6 +3,8 @@
         <img src="../assets/kidoutline.png" alt="kid">
         <h1>Name</h1>
         <h2>Points</h2>
+        <h2>Steps</h2>
+        <h2>Activity Time</h2>
 
 
     </div>
@@ -15,9 +17,11 @@
 <style scoped>
 
 .kid-card {
-    border: solid 2px;
+    border: solid 10px;
     background-color: #86cacd;
     text-align: center;
+    border-radius: 25px
+    
 }
 
 h2 {
