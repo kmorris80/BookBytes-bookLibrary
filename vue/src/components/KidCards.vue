@@ -1,7 +1,7 @@
 <template>
     <div class="kid-card">
         <img src="../assets/kidoutline.png" alt="kid">
-        <h1>Name</h1>
+        <h2>Name</h2>
         <h2>Points</h2>
         <h2>Steps</h2>
         <h2>Activity Time</h2>
@@ -16,9 +16,13 @@
      
 </template>
 
-<script>
-
-</script>
+// <script>
+// export default {
+//     props: [
+//         'name'
+//     ]
+// }
+// </script>
 
 <style scoped>
 
@@ -26,14 +30,14 @@
     border: solid 10px;
     background-color: #86cacd;
     text-align: center;
-    border-radius: 25px
-    
+    border-radius: 25px    
 }
 
 h2 {
     border: solid 1px;
     margin-left: 20px;
     margin-right: 20px; 
+    border-radius: 10px;
 }
 
 img {
