@@ -40,3 +40,4 @@ export default new Vuex.Store({
     }
   }
 })
+//for information that is used across multiple pages

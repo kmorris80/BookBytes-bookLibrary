@@ -11,3 +11,8 @@ export default {
   }
 
 }
+
+//paths and verbs correspond to controller on back end
+//create a new service
+//create a controller
+//service for activities
