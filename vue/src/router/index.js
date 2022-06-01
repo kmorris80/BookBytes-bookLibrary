@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddKid from '../components/AddKid.vue'
+import KidCardBack from '../components/KidCardBack.vue'
 
 Vue.use(Router)
 
@@ -62,6 +63,15 @@ const router = new Router({
         meta: {
           requiresAuth: true
         }
+    },
+    {
+      path: "/kidCardBack",
+      name: "kidCardBack",
+      component: KidCardBack,
+      meta:{
+        requiresAuth: true
+      }
+
     }
   ]
 })

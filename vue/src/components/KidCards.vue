@@ -5,8 +5,15 @@
         <h2>Points</h2>
         <h2>Steps</h2>
         <h2>Activity Time</h2>
-        <h2>Play Time Remaining</h2>
+    <div>
+      <router-link :to="{name: 'kidCardBack'}" tag="button" class="btn btn-lg btn-primary btn-block">Add Activity/Steps
+        
+      </router-link>
+
     </div>
+
+    </div>
+     
 </template>
 
 // <script>
