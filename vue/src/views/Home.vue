@@ -2,8 +2,8 @@
   <div class="home">
     <header>
       <h1 id="welcome">Let's Get Moving!</h1>
-      <div id="addkid">
-      <router-link :to="{name: 'addKid'}">+ Add Kid</router-link>
+      <div id="add-kid">
+      <router-link :to="{name: 'register'}">+ Add Kid</router-link>
       <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>
       
@@ -59,9 +59,8 @@ kid-cards {
   text-align: center;
   margin: 50px;
 }
-#addkid{
+#add-kid{
   text-align: center;
   font-size: 2em;
-
 }
 </style>

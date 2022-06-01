@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h1 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h1 mb-3 font-weight-normal">Create Parent or Kid Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -35,7 +35,7 @@
         />
       </div>
       <div>
-        <label for="checkbox"  id="checkboxtext">IMPORTANT - Please check if you are a parent:</label>
+        <label for="checkbox"  id="checkbox-text">IMPORTANT - Please check if you are a parent:</label>
         <input 
           type="checkbox"
           class="form-check-input"
@@ -114,7 +114,7 @@ label {
   font-size: 2rem;
 }
 
-#checkboxtext {
+#checkbox-text {
   font-size: 20px;
   font-weight: bolder;
 }

@@ -1,8 +1,8 @@
 <template>
  <div class="text-center">
    <form>
-        <div>
-      <h1 class="h3 mb-3 font-weight-normal">Enter Activity Minutes or Steps</h1>
+      <div>
+        <h1 class="h3 mb-3 font-weight-normal">Enter Activity Minutes or Steps</h1>
       </div>
       <div id="input-section">
       <label for="name" class="sr-only">Activity Minutes:</label>
@@ -24,15 +24,16 @@
 input {
   margin-bottom: 20px;
   margin-top: 5px;
-  border: solid 1px;
+  border: solid 2px;
   text-align: center;
   
 }
 label{
     font-size: 2em;
 }
-#input-section{
-width: 200px;
+#input-section {
+padding-left: 100px;
+padding-right: 100px;
 
 }
 
