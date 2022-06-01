@@ -4,24 +4,33 @@
       <h1 id="welcome">Let's Get Moving!</h1>
       <div id="addkid">
       <router-link :to="{name: 'addKid'}">+ Add Kid</router-link>
+      <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>
+      
+      <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
+
     <kid-cards></kid-cards>
-    <kid-cards></kid-cards>
-    <kid-cards></kid-cards>
-    <kid-cards></kid-cards>
-  
     
   </div>
 </template>
 
 <script>
+// import addKid from '../components/AddKid.vue';
 import kidCards from '../components/KidCards.vue';
+
 
 export default {
   name: "home",
+  // data() {
+  //   return {
+  //     name: "",
+  //     showForm: false,
+  //   }
+  // },
   components: {
-    kidCards
+    kidCards,
+    // addKid
   }
 };
 </script>
@@ -55,6 +64,4 @@ kid-cards {
   font-size: 2em;
 
 }
-
-
 </style>
