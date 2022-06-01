@@ -3,7 +3,7 @@ package com.techelevator.model;
 import javax.validation.constraints.NotEmpty;
 
 public class RegisterUserDTO {
-
+    // boolean for is parent or child
     @NotEmpty
     private String username;
     @NotEmpty
@@ -12,6 +12,9 @@ public class RegisterUserDTO {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    @NotEmpty(message = "Is this a Parent?")
+    private boolean isParent;
+
 
     public String getUsername() {
         return username;
@@ -44,4 +47,8 @@ public class RegisterUserDTO {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public boolean isParent() {return isParent;}
+
+    public void setParent(boolean parent) {isParent = parent;}
 }

@@ -63,7 +63,7 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
+    public boolean create(String username, String password, String role, boolean isParent) {
         boolean userCreated = false;
 
         // create user
@@ -82,8 +82,11 @@ public class JdbcUserDao implements UserDao {
                 }
                 , keyHolder) == 1;
         int newUserId = (int) keyHolder.getKeys().get(id_column);
-
-        return userCreated;
+        if (isParent) {
+            String insertParent = "insert into parents (parent_id) values(?)";}
+        if (!isParent){
+            String insertKid = "insert into kids (kid_id) values(?)";
+        }return userCreated;
     }
 
     private User mapRowToUser(SqlRowSet rs) {
