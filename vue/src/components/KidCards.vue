@@ -13,7 +13,7 @@
 
 <script>
 
-import kidService from "../services/KidsService"
+import kidService from "../services/BookService"
 
 export default {
     name: "kid-detail",
