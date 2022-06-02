@@ -15,14 +15,24 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private boolean isSystemAdmin;
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String password, String authorities, boolean isSystemAdmin) {
       this.id = id;
       this.username = username;
       this.password = password;
       this.activated = true;
+      this.isSystemAdmin = isSystemAdmin;
+   }
+
+   public boolean isSystemAdmin() {
+      return isSystemAdmin;
+   }
+
+   public void setSystemAdmin(boolean systemAdmin) {
+      isSystemAdmin = systemAdmin;
    }
 
    public Long getId() {
@@ -90,13 +100,16 @@ public class User {
       return Objects.hash(id, username, password, activated, authorities);
    }
 
+
    @Override
    public String toString() {
       return "User{" +
               "id=" + id +
               ", username='" + username + '\'' +
+              ", password='" + password + '\'' +
               ", activated=" + activated +
               ", authorities=" + authorities +
+              ", isSystemAdmin=" + isSystemAdmin +
               '}';
    }
 }
