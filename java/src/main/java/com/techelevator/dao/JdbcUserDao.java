@@ -78,15 +78,17 @@ public class JdbcUserDao implements UserDao {
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);
+                    ps.setBoolean(4, isParent);
                     return ps;
                 }
                 , keyHolder) == 1;
         int newUserId = (int) keyHolder.getKeys().get(id_column);
         if (isParent) {
-            String insertParent = "insert into parents (parent_id) values(?)";}
-        if (!isParent){
-            String insertKid = "insert into kids (kid_id) values(?)";
-        }return userCreated;
+          String insertParent = "insert into parents (parent_id) values(?)";}
+        else {
+           String insertKid = "insert into kids (kid_id) values(?)";
+        }
+        return userCreated;
     }
 
     private User mapRowToUser(SqlRowSet rs) {
