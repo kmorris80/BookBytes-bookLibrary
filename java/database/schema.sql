@@ -15,6 +15,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	isSystemAdmin boolean,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 

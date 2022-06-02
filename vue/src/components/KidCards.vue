@@ -1,6 +1,5 @@
 <template>
     <div class="kid-card">
-        <img src="../assets/kidoutline.png" alt="kid">
         <h2>{{ kid.username }}</h2>
         <h2>{{ kid.points }}</h2>
         <h2>{{ kid.steps }}</h2>
@@ -56,6 +55,7 @@ h2 {
 img {
     height: 20vh;
     padding: 10px;
+    
 }
 
 </style>
