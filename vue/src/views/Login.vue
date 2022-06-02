@@ -123,6 +123,16 @@ grid-template-areas:
   grid-area: sign-in;
 }
 
+label {
+  font-size: 2rem;
+}
+
+input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: solid 2px;
+  font-size: 20px;
+}
 
 
 </style>
