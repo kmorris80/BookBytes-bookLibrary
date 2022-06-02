@@ -5,9 +5,9 @@
 -- The following line terminates any active connections to the database so that it can be destroyed
 SELECT pg_terminate_backend(pid)
 FROM pg_stat_activity
-WHERE datname = 'kids_wellness';
+WHERE datname = 'library_capstone';
 
-DROP DATABASE kids_wellness;
+DROP DATABASE library_capstone;
 
-DROP USER kids_wellness_owner;
-DROP USER kids_wellness_appuser;
+DROP USER library_capstone_owner;
+DROP USER library_capstone_appuser;

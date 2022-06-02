@@ -12,8 +12,7 @@ public class RegisterUserDTO {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
-    @NotEmpty(message = "Is this a Parent?")
-    private boolean isParent;
+
 
 
     public String getUsername() {
@@ -47,8 +46,5 @@ public class RegisterUserDTO {
     public void setRole(String role) {
         this.role = role;
     }
-
-    public boolean isParent() {return isParent;}
-
-    public void setParent(boolean parent) {isParent = parent;}
+    
 }

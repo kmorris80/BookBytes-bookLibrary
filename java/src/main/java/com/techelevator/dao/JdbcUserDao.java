@@ -27,16 +27,16 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
     }
 
-	@Override
-	public User getUserById(Long userId) {
-		String sql = "SELECT * FROM users WHERE user_id = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
-		if(results.next()) {
-			return mapRowToUser(results);
-		} else {
-			throw new RuntimeException("userId "+userId+" was not found.");
-		}
-	}
+    @Override
+    public User getUserById(Long userId) {
+        String sql = "SELECT * FROM users WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        if(results.next()) {
+            return mapRowToUser(results);
+        } else {
+            throw new RuntimeException("userId "+userId+" was not found.");
+        }
+    }
 
     @Override
     public List<User> findAll() {
@@ -63,7 +63,7 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role, boolean isParent) {
+    public boolean create(String username, String password, String role) {
         boolean userCreated = false;
 
         // create user
@@ -78,16 +78,11 @@ public class JdbcUserDao implements UserDao {
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);
-                    ps.setBoolean(4, isParent);
                     return ps;
                 }
                 , keyHolder) == 1;
         int newUserId = (int) keyHolder.getKeys().get(id_column);
-        if (isParent) {
-          String insertParent = "insert into parents (parent_id) values(?)";}
-        else {
-           String insertKid = "insert into kids (kid_id) values(?)";
-        }
+
         return userCreated;
     }
 
@@ -101,3 +96,6 @@ public class JdbcUserDao implements UserDao {
         return user;
     }
 }
+
+
+
