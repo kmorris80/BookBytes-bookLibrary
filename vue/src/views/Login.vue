@@ -1,11 +1,11 @@
 <template >
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <div class="one">
+      <header class="one">
       <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Welcome to Kid's Wellness!</h1>
-      </div>
+      </header>
       <div class ="two">
-      <img id = "swim" src="../assets/swim.png" class="floatLeft"/>
+      <img id = "swim" src="../assets/swim.png"/>
       </div>
       <h1 class="h1 mb-3 font-weight-normal" id="sign-in">Please Sign In</h1>
       <div
@@ -43,6 +43,7 @@
        
       </div>
       <div>
+  
       <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Sign in</button>
      </div>
     <router-link :to="{ name: 'register' }">Need an account?</router-link>
@@ -89,21 +90,39 @@ export default {
 </script>
 
 <style scoped>
+/* #login{
+display: grid;
+grid-template-columns: 1fr, 1fr, 1fr;
+gap: 10px;
+grid-template-areas: 
+"header    header   header   header"
+ "picture  sign-in  sign-in  sign-in"  
+ "picture  input    input   input" */
+
 
  img{
     max-width: 20%;
     height:auto;
+    grid-area: picture;
   }
 
 .input {
   padding-left: 500px;
   padding-right: 500px;
+  grid-area: input;
 }
 
 #welcome-banner{
   font-size: 4em;
   padding: 25px;
 }
+.two{
+  grid-area: picture;
+}
+.sign-in{
+  grid-area: sign-in;
+}
+
 
 
 </style>

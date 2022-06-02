@@ -1,7 +1,10 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h1 mb-3 font-weight-normal">Create Parent or Kid Account</h1>
+      <h1 class="h1 mb-3 font-weight-normal" id="create">Create Parent or Kid Account</h1>
+       <div>
+       <img id = "soccer" src="../assets/soccer.png"/>
+      </div>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -124,7 +127,16 @@ label {
 }
 
 .input {
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 500px;
+  padding-right: 500px;
 }
+#create{
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+
+ img{
+    max-width: 30%;
+    height:auto;
+  }
 </style>
