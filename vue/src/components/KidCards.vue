@@ -1,28 +1,41 @@
 <template>
     <div class="kid-card">
         <img src="../assets/kidoutline.png" alt="kid">
-        <h2>Name</h2>
-        <h2>Points</h2>
-        <h2>Steps</h2>
-        <h2>Activity Time</h2>
-    <div>
-      <router-link :to="{name: 'kidCardBack'}" tag="button" class="btn btn-lg btn-primary btn-block">Add Activity/Steps
-        
-      </router-link>
-
-    </div>
-
+        <h2>{{ kid.username }}</h2>
+        <h2>{{ kid.points }}</h2>
+        <h2>{{ kid.steps }}</h2>
+        <h2>{{ kid.activityTime }}</h2>
+        <div>
+          <router-link :to="{name: 'kidCardBack'}" tag="button" class="btn btn-lg btn-primary btn-block">Add Activity/Steps</router-link>
+        </div>
     </div>
      
 </template>
 
-// <script>
-// export default {
-//     props: [
-//         'name'
-//     ]
-// }
-// </script>
+<script>
+
+import kidService from "../services/KidsService"
+
+export default {
+    name: "kid-detail",
+    data() {
+        return {
+            kid: {
+                id: null,
+                username: "",
+                steps: null,
+                activityTime: null,
+                points: null
+            }
+        }
+    },
+    created() {
+        kidService.getKid(this.$route.params.id).then((response) => {
+            this.kid = response.data;
+        })
+    },
+}
+</script>
 
 <style scoped>
 

@@ -2,36 +2,40 @@
   <div class="home">
     <header>
       <h1 id="welcome">Let's Get Moving!</h1>
-      <div id="addkid">
-      <router-link :to="{name: 'addKid'}">+ Add Kid</router-link>
+      <div id="add-kid">
+      <router-link :to="{name: 'register'}">+ Add Kid</router-link>
       <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>
       
       <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
 
+    <kid-cards v-for="kid in kids" :key="kid.id"></kid-cards>
     <kid-cards></kid-cards>
     
   </div>
 </template>
 
 <script>
-// import addKid from '../components/AddKid.vue';
 import kidCards from '../components/KidCards.vue';
+import kidsService from '../services/KidsService'
 
 
 export default {
   name: "home",
-  // data() {
-  //   return {
-  //     name: "",
-  //     showForm: false,
-  //   }
-  // },
   components: {
     kidCards,
-    // addKid
-  }
+  },
+  data() {
+    return {
+      kids: []
+    }
+  },
+  created() {
+    kidsService.list().then((response) => {
+      this.kids = response.data;
+    });
+  },
 };
 </script>
 
@@ -59,9 +63,8 @@ kid-cards {
   text-align: center;
   margin: 50px;
 }
-#addkid{
+#add-kid{
   text-align: center;
   font-size: 2em;
-
 }
 </style>
