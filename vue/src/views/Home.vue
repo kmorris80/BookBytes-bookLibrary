@@ -3,37 +3,36 @@
     <header>
       <h1 id="welcome">Let's Get Moving!</h1>
       <div id="add-kid">
-      <router-link :to="{name: 'register'}">+ Add Kid</router-link>
       <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>
       
       <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
 
-    <kid-cards v-for="kid in kids" :key="kid.id"></kid-cards>
-    <kid-cards></kid-cards>
+    <book-cards v-for="book in books" :key="book.id"></book-cards>
+    <book-cards></book-cards>
     
   </div>
 </template>
 
 <script>
-import kidCards from '../components/KidCards.vue';
-import kidsService from '../services/KidsService'
+import bookCards from '../components/BookCards.vue';
+import bookService from '../services/BookService'
 
 
 export default {
   name: "home",
   components: {
-    kidCards,
+    bookCards,
   },
   data() {
     return {
-      kids: []
+      books: []
     }
   },
   created() {
-    kidsService.list().then((response) => {
-      this.kids = response.data;
+    bookService.list().then((response) => {
+      this.books = response.data;
     });
   },
 };
@@ -62,9 +61,5 @@ kid-cards {
 #welcome {
   text-align: center;
   margin: 50px;
-}
-#add-kid{
-  text-align: center;
-  font-size: 2em;
 }
 </style>
