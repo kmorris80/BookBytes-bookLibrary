@@ -1,6 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Welcome to Kid's Wellness!</h1>
       <h1 class="h1 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
@@ -91,8 +92,15 @@ label {
 }
 
 .input {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 500px;
+  padding-right: 500px;
 }
+
+#welcome-banner{
+  font-size: 4em;
+  padding: 125px;
+}
+
+
 
 </style>
