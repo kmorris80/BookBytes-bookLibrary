@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import kidCards from '../components/KidCards.vue';
+import kidCards from '../components/BookCards.vue';
 import kidsService from '../services/KidsService'
 
 
