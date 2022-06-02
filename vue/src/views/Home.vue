@@ -10,28 +10,32 @@
       <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
 
+    <kid-cards v-for="kid in kids" :key="kid.id"></kid-cards>
     <kid-cards></kid-cards>
     
   </div>
 </template>
 
 <script>
-// import addKid from '../components/AddKid.vue';
 import kidCards from '../components/KidCards.vue';
+import kidsService from '../services/KidsService'
 
 
 export default {
   name: "home",
-  // data() {
-  //   return {
-  //     name: "",
-  //     showForm: false,
-  //   }
-  // },
   components: {
     kidCards,
-    // addKid
-  }
+  },
+  data() {
+    return {
+      kids: []
+    }
+  },
+  created() {
+    kidsService.list().then((response) => {
+      this.kids = response.data;
+    });
+  },
 };
 </script>
 
