@@ -124,7 +124,7 @@ label {
 }
 
 .input {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 300px;
+  padding-right: 300px;
 }
 </style>

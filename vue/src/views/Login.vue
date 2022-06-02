@@ -1,8 +1,13 @@
-<template>
+<template >
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <div class="one">
       <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Welcome to Kid's Wellness!</h1>
-      <h1 class="h1 mb-3 font-weight-normal">Please Sign In</h1>
+      </div>
+      <div class ="two">
+      <img id = "swim" src="../assets/swim.png" class="floatLeft"/>
+      </div>
+      <h1 class="h1 mb-3 font-weight-normal" id="sign-in">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -13,6 +18,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
+      
       <label for="username" class="sr-only">Username</label>
       <div class="input">
         <input
@@ -24,6 +30,7 @@
           required
           autofocus
         />
+     
       <label for="password" class="sr-only">Password</label>
        <input
          type="password"
@@ -33,10 +40,13 @@
          v-model="user.password"
          required
        />
+       
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
+      <div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Sign in</button>
+     </div>
     <router-link :to="{ name: 'register' }">Need an account?</router-link>
+  </form>
   </div>
 </template>
 
@@ -80,16 +90,10 @@ export default {
 
 <style scoped>
 
-input {
-  margin-bottom: 20px;
-  margin-top: 5px;
-  border: solid 2px;
-  font-size: 20px;
-}
-
-label {
-  font-size: 2rem;
-}
+ img{
+    max-width: 20%;
+    height:auto;
+  }
 
 .input {
   padding-left: 500px;
@@ -98,9 +102,8 @@ label {
 
 #welcome-banner{
   font-size: 4em;
-  padding: 125px;
+  padding: 25px;
 }
-
 
 
 </style>
