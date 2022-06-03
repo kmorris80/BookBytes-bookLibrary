@@ -5,9 +5,10 @@
       <div id="add-kid">
       <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>
-      
+     
       <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
+    <search-bar></search-bar>
 
     <book-cards v-for="book in books" :key="book.id"></book-cards>
     <book-cards></book-cards>
@@ -18,12 +19,14 @@
 <script>
 import bookCards from '../components/BookCards.vue';
 import bookService from '../services/BookService'
+import searchBar from '../components/SearchBar.vue'
 
 
 export default {
   name: "home",
   components: {
     bookCards,
+    searchBar,
   },
   data() {
     return {
