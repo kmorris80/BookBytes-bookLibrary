@@ -1,104 +1,115 @@
 <template>
-              <div id=searchBooks class="instant-search">
-                  <div class="instant-search__input-container">
-                      <input type="text" class="instant-search__input" spellcheck="false" placeholder = "Search Books"/>
-                       </div>   
-                       <div class="instant-search__results-container">
-                           <div class="instant-search__results">
-                               <a href="#" class="instant-search__result">
-                                   <div class="instant-search__title">Title</div>
-                                   <p class="instant-search__paragraph">
-                                       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, asperiores! Voluptate vero 
-                                       debitis id hic veritatis amet voluptatibus? Corrupti tempore facilis illo voluptatum quia maiores 
-                                       tempora? In non magnam sint!
-                                    </p>
-                               </a>
-                               
-                               
-                               </div>   
-                           </div> 
-                        </div>    
-    
- 
-
-
-
-
-
-
-
-
-        <!-- <label for="title-search" id="title-input">Title:</label>
-        <input
-          type="text"
-          id="title"
+      <div id=searchBooks class="search">
+        <div class="title-input" id="title-field">
+          <label>Title:</label>
+          <input
           class="form-control"
-          placeholder="Search by title, author, keyword..."
-          v-model="input"
-          required
-          autofocus
-        />
-        <div class="book-search" v-for="book in books" :key="book">
-        <div class="item error" v-if="input&&!filteredList().length">
-            <p>No results found!</p>
-        </div>
-         <div>
-        <label for="author-search" id="author-input">Author:</label>
-        <input
           type="text"
-          id="author"
-          class="form-control"
-          placeholder=""
-          required
-          autofocus
-        />
+          placeholder="Title"
+          v-model="filter.title"
+          />
         </div>
-        <div>
-        <label for="character-search" id="character-input">Character:</label>
-        <input
+        <div class="author-input" id="author-field">
+          <label>Author:</label>
+          <input
+          class="form-control"
           type="text"
-          id="character"
-          class="form-control"
-          placeholder=""
-          required
-          autofocus
-        />
+           placeholder="Author"
+           v-model="filter.author"
+         
+          />
+
         </div>
-         <div>
-        <label for="genre-search" id="genre-input">Genre:</label>
-        <input
+         <div class="character-input" id="character-field">
+          <label>Character:</label>
+          <input
+          class="form-control"
           type="text"
-          id="genre"
-          class="form-control"
-          placeholder=""
-          required
-          autofocus
-        />
+           placeholder="Character"
+           v-model="filter.character"
+        
+          />
         </div>
-         <div>
-        <label for="keyword-search" id="keyword-input">Keyword:</label>
-        <input
+         <div class="genre-input" id="genre-field">
+          <label>Genre:</label>
+          <input
+          class="form-control"
           type="text"
-          id="Keyword"
-          class="form-control"
-          placeholder=""
-          required
-          autofocus
-        />
+           placeholder="Genre"
+           v-model="filter.genre"
+           
+          />
         </div>
-         <button class="btn btn-primary btn-lg">Search</button>
-        </div> -->
+         <div class="keyword-input" id="keyword-field">
+          <label>Keyword:</label>
+          <input
+          class="form-control"
+          type="text"
+          placeholder="Keyword"
+          v-model="filter.keyWord"
+
+          />
+        </div>
+                
+      </div>    
 </template>
 
 <script>
+ import bookService from '../services/BookService.js'
+export default{
+   name: 'book-list',
+  data() {
+    return {
+      books: [],
 
+      filter:{
+        title: '',
+        author: '',
+        character: '',
+        genre:'',
+        keyWord:''
+      }
+      }
+  },
+  computed:{
+    filteredBooks(){
+      let filteredBooks= this.books;
+      if(this.filter.title !=''){
+        filteredBooks = filteredBooks.filter((books)=>books.title.toLowerCase().includes(this.filter.title.toLowerCase()))
+      }
+      if(this.filter.author !=''){
+        filteredBooks = filteredBooks.filter((books)=>books.author.toLowerCase().includes(this.filter.author.toLowerCase()))
+      }
+      if(this.filter.character !=''){
+        filteredBooks = filteredBooks.filter((books)=>books.character.toLowerCase().includes(this.filter.character.toLowerCase()))
+      }
+      if(this.filter.genre !=''){
+        filteredBooks = filteredBooks.filter((books)=>books.genre.toLowerCase().includes(this.filter.genre.toLowerCase()))
+      }
+      if(this.filter.keyWord !=''){
+        filteredBooks = filteredBooks.filter((books)=>books.keyWord.toLowerCase().includes(this.filter.keyWord.toLowerCase()))
+      }
+      return filteredBooks;
 
+    }
 
+  },
+  methods:{
+  created(){
+    bookService.list().then((response) =>{
+      this.books = response.data;
+    })
+  }
+  }
+}
 </script>
+
+
 
 <style scoped>
 input{
     width: 500px;
+    padding-left: 20px;
 }
 
 </style>
