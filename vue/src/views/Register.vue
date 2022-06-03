@@ -3,7 +3,7 @@
     <form class="form-register" @submit.prevent="register">
       <h1 class="h1 mb-3 font-weight-normal" id="create">Create Your Account</h1>
        <div>
-       <img id = "soccer" src="../assets/PeopleWithBooks.jpeg"/>
+       <img id = "people-with-books" src="../assets/PeopleWithBooks.jpeg"/>
       </div>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}

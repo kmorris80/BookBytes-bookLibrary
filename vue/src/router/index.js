@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import KidCardBack from '../components/KidCardBack.vue'
+import NewBook from '../views/NewBook.vue'
 
 Vue.use(Router)
 
@@ -56,11 +56,11 @@ const router = new Router({
 
     },
     {
-      path: "/kidCardBack",
-      name: "kidCardBack",
-      component: KidCardBack,
+      path: '/add-book',
+      name: "AddBook",
+      component: NewBook,
       meta:{
-        requiresAuth: true
+        requiresAuth: false // change to true
       }
 
     }

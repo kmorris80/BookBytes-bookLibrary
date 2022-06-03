@@ -18,7 +18,7 @@
 
 <script>
 import kidCards from '../components/KidCards.vue';
-import kidsService from '../services/KidsService'
+import kidsService from '../services/BookService'
 
 
 export default {
