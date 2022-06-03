@@ -1,9 +1,9 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h1 mb-3 font-weight-normal" id="create">Create Parent or Kid Account</h1>
+      <h1 class="h1 mb-3 font-weight-normal" id="create">Create Your Account</h1>
        <div>
-       <img id = "soccer" src="../assets/soccer.png"/>
+       <img id = "soccer" src="../assets/PeopleWithBooks.jpeg"/>
       </div>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -38,13 +38,13 @@
         />
       </div>
       <div>
-        <label for="checkbox"  id="checkbox-text">IMPORTANT - Please check if you are a parent:</label>
-        <input 
+        <label for="checkbox"  id="checkbox-text">I am a System Administrator</label>
+        <input
           type="checkbox"
           class="form-check-input"
-          id="isParent"
-          v-model="user.isParent"
-        />  
+          id="isSystemAdministrator"
+          v-model="user.isSystemAdministrator"
+        />
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -66,7 +66,7 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
-        isParent: false,
+        isSystemAdministrator: false,
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -136,7 +136,7 @@ label {
 }
 
  img{
-    max-width: 30%;
+    max-width: 60%;
     height:auto;
   }
 </style>

@@ -2,10 +2,10 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <header class="one">
-      <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Welcome to Kid's Wellness!</h1>
+      <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Start Your Book Adventure!</h1>
       </header>
       <div class ="two">
-      <img id = "swim" src="../assets/swim.png"/>
+      <img id = "swim" src="../assets/CityBooks.jpeg"/>
       </div>
       <h1 class="h1 mb-3 font-weight-normal" id="sign-in">Please Sign In</h1>
       <div
@@ -101,7 +101,7 @@ grid-template-areas:
 
 
  img{
-    max-width: 20%;
+    max-width: 50%;
     height:auto;
     grid-area: picture;
   }
@@ -114,7 +114,7 @@ grid-template-areas:
 
 #welcome-banner{
   font-size: 4em;
-  padding: 25px;
+  padding: 15px;
 }
 .two{
   grid-area: picture;
