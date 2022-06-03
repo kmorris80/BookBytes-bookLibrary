@@ -28,7 +28,7 @@ public class AppController {
     }
 
     @RequestMapping(path="/book/{id}", method = RequestMethod.GET)
-    public Book bookById(@PathVariable int bookId) {
+    public Book bookDetails(@PathVariable int bookId) {
         // System.out.println("DEBUG, what the object looks like: ");
         return bookDao.findBookById(bookId);
     }
