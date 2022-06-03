@@ -60,7 +60,7 @@ const router = new Router({
       name: "AddBook",
       component: NewBook,
       meta:{
-        requiresAuth: false // change to true
+        requiresAuth: true
       }
 
     }

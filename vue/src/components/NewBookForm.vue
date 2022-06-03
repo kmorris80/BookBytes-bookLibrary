@@ -17,11 +17,23 @@
         <input
           class="form-control"
           type="text"
-          placeholder="ISBN"
-          v-model="book.isbn"
+          placeholder="Genre"
+          v-model="book.genre"
+        />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Keyword"
+          v-model="book.keyword"
+        />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Character"
+          v-model="book.character"
         />
       </div>
-      <div>
+      <!-- <div>
         <label for="new-release-input" id="checkbox-text">New Release:</label>
         <input
           class="form-check-input"
@@ -30,7 +42,7 @@
           placeholder="New Release"
           v-model="book.newRelease"
         />
-      </div>
+      </div> -->
       <button class="btn btn-primary btn-lg">Save</button>
     </form>
   </div>
@@ -45,8 +57,10 @@ export default {
       book: {
         title: "",
         author: "",
-        isbn: "",
-        newRelease: false,
+        genre: "",
+        keyword: "",
+        character: "",
+        // newRelease: false,
       },
     };
   },
