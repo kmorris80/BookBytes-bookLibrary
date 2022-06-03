@@ -67,14 +67,16 @@ public class JdbcUserDao implements UserDao {
         boolean userCreated = false;
 
         // create user
-        String insertUser = "insert into users (username,password_hash,role, is_system_admin) values(?,?,?,?)";
+        String insertUser = "insert into users (username,password_hash,role";
+        insertUser += ", is_system_admin) values(?,?,?,?)";
+        String insertUser1 = insertUser;
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         String id_column = "user_id";
         userCreated = jdbcTemplate.update(con -> {
-                    PreparedStatement ps = con.prepareStatement(insertUser, new String[]{id_column});
+                    PreparedStatement ps = con.prepareStatement(insertUser1, new String[]{id_column});
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);

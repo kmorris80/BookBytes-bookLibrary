@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotEmpty;
 
 public class RegisterUserDTO {
@@ -12,8 +14,16 @@ public class RegisterUserDTO {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    @JsonProperty("isSystemAdmin")
+    private boolean isSystemAdmin;
 
+    public boolean isSystemAdmin() {
+        return isSystemAdmin;
+    }
 
+    public void setSystemAdmin(boolean systemAdmin) {
+        isSystemAdmin = systemAdmin;
+    }
 
     public String getUsername() {
         return username;
@@ -46,5 +56,15 @@ public class RegisterUserDTO {
     public void setRole(String role) {
         this.role = role;
     }
-    
+
+    @Override
+    public String toString() {
+        return "RegisterUserDTO{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", role='" + role + '\'' +
+                ", isSystemAdmin=" + isSystemAdmin +
+                '}';
+    }
 }
