@@ -2,10 +2,11 @@ import axios from 'axios';
 
 export default {
 
-  create(book){
-    return axios.post('/book/', book)
-  }
+  get(id) {
+    return axios.get(`/book/${id}`)
+  },
 
+  list() {
+      return axios.get('/book')
+  },
 }
-
-  
