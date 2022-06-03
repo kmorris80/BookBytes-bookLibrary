@@ -4,8 +4,8 @@
         <h2>{{ book.title }}</h2>
         <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" /> -->
         <h2>by {{ book.author }}</h2>
-        <h2>{{ book.isbn }}</h2>
         <label for="checkbox"  id="checkbox-text">Have you read this book? </label>
+        <button>Add Book to Reading List</button>
         <input type="checkbox" id="is-read" class="form-check-input" v-model="book.isRead">
     </div>
      
