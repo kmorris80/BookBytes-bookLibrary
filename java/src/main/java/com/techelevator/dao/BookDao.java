@@ -9,10 +9,16 @@ public interface BookDao {
 
     List<Book>findAllBooks();
 
-    Book findBookById (int bookId);
+    Book findBookByTitle (String bookId);
 
     Book addBook (Book book);
 
-    Book findBookByIsbn (int isbn);
+    Book findBookByCharacter (String character);
+
+    Book findBookByGenre (String genre);
+
+    Book findBookByKeyword (String keyword);
+
+    Book findBookByAuthor (String author);
 
 }

@@ -30,15 +30,15 @@ public class JdbcBookDao implements BookDao{
     }
 
     @Override
-    public Book findBookById(int bookId) {
-        String sql = "SELECT * FROM book where book_id = ?";
-        SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, bookId);
+    public Book findBookByTitle (String title) {
+        String sql = "SELECT * FROM book where title = ?";
+        SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, title);
 
-        Book books = null;
-        if(results.next()) {
-            books = bookObjectMapper(results);
+        if(results.next()){
+            return bookObjectMapper(results);
+        }else {
+            throw new RuntimeException("title" + title + "not found");
         }
-        return books;
     }
 
     @Override
@@ -50,15 +50,53 @@ public class JdbcBookDao implements BookDao{
     }
 
     @Override
-    public Book findBookByIsbn(int isbn) {
+    public Book findBookByKeyword(String keyword) {
 
-        String sql = "SELECT * FROM book WHERE isbn = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, isbn);
+        String sql = "SELECT * FROM book WHERE keyword = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, keyword);
 
         if(results.next()){
             return bookObjectMapper(results);
         }else {
-            throw new RuntimeException("isbn" + isbn+ "not found");
+            throw new RuntimeException("keyword" + keyword + "not found");
+        }
+    }
+
+    @Override
+    public Book findBookByGenre(String genre) {
+
+        String sql = "SELECT * FROM book WHERE genre = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genre);
+
+        if(results.next()){
+            return bookObjectMapper(results);
+        }else {
+            throw new RuntimeException("genre" + genre + "not found");
+        }
+    }
+
+    @Override
+    public Book findBookByCharacter(String character) {
+
+        String sql = "SELECT * FROM book WHERE character = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, character);
+
+        if(results.next()){
+            return bookObjectMapper(results);
+        }else {
+            throw new RuntimeException("character" + character + "not found");
+        }
+    }
+    @Override
+    public Book findBookByAuthor(String author) {
+
+        String sql = "SELECT * FROM book WHERE author = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, author);
+
+        if(results.next()){
+            return bookObjectMapper(results);
+        }else {
+            throw new RuntimeException("author" + author + "not found");
         }
     }
 
