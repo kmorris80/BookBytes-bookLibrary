@@ -13,7 +13,7 @@ GRANT ALL
 ON ALL SEQUENCES IN SCHEMA public
 TO library_capstone_owner;
 
-CREATE USER library_capstones_appuser
+CREATE USER library_capstone_appuser
 WITH PASSWORD 'finalcapstone';
 
 GRANT SELECT, INSERT, UPDATE, DELETE
