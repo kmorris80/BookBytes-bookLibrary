@@ -17,8 +17,13 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import kidCards from '../components/BookCards.vue';
 import kidsService from '../services/KidsService'
+=======
+import kidCards from '../components/KidCards.vue';
+import kidsService from '../services/BookService'
+>>>>>>> 6dbc3d2da6d734d65602e463d911854bcc4290de
 
 
 export default {
