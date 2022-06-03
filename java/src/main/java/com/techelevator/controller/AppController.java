@@ -27,17 +27,37 @@ public class AppController {
         return bookDao.findAllBooks();
     }
 
-    @RequestMapping(path="/book/{id}", method = RequestMethod.GET)
-    public Book bookDetails(@PathVariable int bookId) {
+    @RequestMapping(path="/book/{title}", method = RequestMethod.GET)
+    public Book bookTitle(@PathVariable String title) {
         // System.out.println("DEBUG, what the object looks like: ");
-        return bookDao.findBookById(bookId);
+        return bookDao.findBookByTitle(title);
     }
 
-    @RequestMapping(path="/myBooks/{id}", method = RequestMethod.GET)
-    public Book myBooksById(@PathVariable int userId) {
+    @RequestMapping(path="/myBooks/character", method = RequestMethod.GET)
+    public Book myBooksByCharacter(@PathVariable String character) {
         // System.out.println("DEBUG, what the object looks like: ");
-        return bookDao.findBookById(userId);
+        return bookDao.findBookByCharacter(character);
 
     }
+
+    @RequestMapping(path="/myBooks/genre", method = RequestMethod.GET)
+    public Book myBooksByGenre(@PathVariable String genre) {
+        // System.out.println("DEBUG, what the object looks like: ");
+        return bookDao.findBookByGenre(genre);
+
+    }
+    @RequestMapping(path="/myBooks/keyword", method = RequestMethod.GET)
+    public Book myBooksByKeyword(@PathVariable String keyword) {
+        // System.out.println("DEBUG, what the object looks like: ");
+        return bookDao.findBookByKeyword(keyword);
+
+    }
+    @RequestMapping(path="/myBooks/author", method = RequestMethod.GET)
+    public Book myBooksByAuthor(@PathVariable String author) {
+        // System.out.println("DEBUG, what the object looks like: ");
+        return bookDao.findBookByAuthor(author);
+
+    }
+
 
 }
