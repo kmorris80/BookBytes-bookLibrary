@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <header>
-      <h1 id="welcome">Let's Get Moving!</h1>
+      <h1 id="welcome">Let's Get Reading!</h1>
       <div id="add-kid">
       <!-- <button @click="showForm = !showForm">Add Kid</button> -->
       </div>

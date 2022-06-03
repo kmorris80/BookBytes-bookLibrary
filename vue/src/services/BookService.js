@@ -9,4 +9,8 @@ export default {
   list() {
       return axios.get('/book')
   },
+
+  create(book) {
+    return axios.post('/book' , book)
+  }
 }

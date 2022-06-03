@@ -38,12 +38,12 @@
         />
       </div>
       <div>
-        <label for="checkbox"  id="checkbox-text">I am a System Administrator</label>
+        <label for="checkbox"  id="checkbox-text">I am a System Administrator:</label>
         <input
           type="checkbox"
           class="form-check-input"
           id="isSystemAdministrator"
-          v-model="user.isSystemAdministrator"
+          v-model="user.isSystemAdmin"
         />
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
@@ -66,7 +66,7 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
-        isSystemAdministrator: false,
+        isSystemAdmin: false,
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
