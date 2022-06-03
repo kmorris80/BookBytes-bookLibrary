@@ -43,8 +43,8 @@ public class JdbcBookDao implements BookDao{
 
     @Override
     public Book addBook(Book book) {
-        String sql = "INSERT INTO book (title, author, isbn, new_release) VALUES(?,?,?,?)";
-        jdbcTemplate.update(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.isNew_release());
+        String sql = "INSERT INTO book (title, author, isbn, genre, keyword, new_release) VALUES(?,?,?,?,?,?)";
+        jdbcTemplate.update(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getGenre(),book.getKeyword(), book.isNewRelease() );
 
         return book;
     }
@@ -104,10 +104,13 @@ public class JdbcBookDao implements BookDao{
 
         Book book = new Book();
         book.setBookId(results.getInt("book_id"));
-        book.setIsbn(results.getInt("isbn"));
         book.setTitle(results.getString("title"));
         book.setAuthor(results.getString("author"));
-        book.setNew_release(results.getBoolean("new_release"));
+        book.setIsbn(results.getInt("isbn"));
+        book.setCharacter(results.getString("character"));
+        book.setGenre(results.getString("genre"));
+        book.setKeyword(results.getString("keyword"));
+        book.setNewRelease(results.getBoolean("new_release"));
         return book;
     }
 }

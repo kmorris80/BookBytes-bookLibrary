@@ -1,55 +1,73 @@
 package com.techelevator.model;
 
+import org.springframework.cglib.core.Local;
+
+import java.sql.Date;
+import java.time.LocalDate;
+
 public class Comments {
 
     private int commentId;
-    private int userId;
-    private String comment;
+    private int commentBy;
+    private String comments;
+    private Date commentDate;
 
-
-    public Comments(){}
-
-    public Comments(int userId, String comment) {
-        this.userId = userId;
-        this.comment = comment;
+    public Comments() {
     }
 
-    public Comments(int commentId, int userId, String comment) {
+    public Comments(int commentBy, String comments, Date commentDate) {
+        this.commentBy = commentBy;
+        this.comments = comments;
+        this.commentDate = commentDate;
+    }
+
+    public Comments(int commentId, int commentBy, String comments, Date commentDate) {
         this.commentId = commentId;
-        this.userId = userId;
-        this.comment = comment;
+        this.commentBy = commentBy;
+        this.comments = comments;
+        this.commentDate = commentDate;
+    }
+
+    public int getCommentBy() {
+        return commentBy;
+    }
+
+    public void setCommentBy(int commentBy) {
+        this.commentBy = commentBy;
+    }
+
+    public String getComments() {
+        return comments;
     }
 
     public int getCommentId() {
         return commentId;
     }
 
-    public void setForumId(int commentId) {
+    public void setCommentId(int commentId) {
         this.commentId = commentId;
     }
 
-    public int getUserId() {
-        return userId;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public Date getCommentDate() {
+        return commentDate;
     }
 
-    public String getComment() {
-        return comment;
-    }
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
 
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     @Override
     public String toString() {
-        return "Forum{" +
+        return "Comments{" +
                 "commentId=" + commentId +
-                ", userId=" + userId +
-                ", comment='" + comment + '\'' +
+                ", commentBy=" + commentBy +
+                ", comments='" + comments + '\'' +
+                ", commentDate=" + commentDate +
                 '}';
     }
 }

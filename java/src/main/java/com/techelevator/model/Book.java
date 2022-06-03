@@ -3,25 +3,34 @@ package com.techelevator.model;
 public class Book {
 
     private int bookId;
-    private int isbn;
     private String title;
     private String author;
+    private int isbn;
+    private String character;
+    private String genre;
+    private String keyword;
     private boolean newRelease;
 
     public Book(){}
 
-    public Book(int isbn, String title, String author, boolean newRelease) {
-        this.isbn = isbn;
+    public Book(String title, String author, int isbn,  String character, String genre, String keyword, boolean newRelease) {
         this.title = title;
         this.author = author;
+        this.isbn = isbn;
+        this.genre = genre;
+        this.keyword = keyword;
+        this.character = character;
         this.newRelease = newRelease;
     }
 
-    public Book(int bookId, int isbn, String title, String author, boolean newRelease) {
+    public Book(int bookId, String title, String author, int isbn, String character, String genre, String keyword, boolean newRelease) {
         this.bookId = bookId;
-        this.isbn = isbn;
         this.title = title;
         this.author = author;
+        this.isbn = isbn;
+        this.genre = genre;
+        this.keyword = keyword;
+        this.character = character;
         this.newRelease = newRelease;
     }
 
@@ -31,14 +40,6 @@ public class Book {
 
     public void setBookId(int bookId) {
         this.bookId = bookId;
-    }
-
-    public int getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(int isbn) {
-        this.isbn = isbn;
     }
 
     public String getTitle() {
@@ -57,23 +58,57 @@ public class Book {
         this.author = author;
     }
 
-    public boolean isNew_release() {
+    public int getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(String character) {
+        this.character = character;
+    }
+
+    public boolean isNewRelease() {
         return newRelease;
     }
 
-    public void setNew_release(boolean new_release) {
-        this.newRelease = new_release;
+    public void setNewRelease(boolean newRelease) {
+        this.newRelease = newRelease;
     }
-
 
     @Override
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
-                ", isbn=" + isbn +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", new_release=" + newRelease +
+                ", isbn=" + isbn +
+                ", character='" + character + '\'' +
+                ", genre='" + genre + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", newRelease=" + newRelease +
                 '}';
     }
 }

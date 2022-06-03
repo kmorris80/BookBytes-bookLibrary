@@ -13,6 +13,6 @@ public interface CommentsDao {
 
     Comments addComment (Comments comments);
 
-    Comments findCommentByUserId (int userId);
+    Comments findAllCommentsByUserId (int userId);
 
 }
