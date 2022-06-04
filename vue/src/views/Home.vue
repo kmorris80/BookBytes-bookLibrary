@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+ 
     <header>
       <h1 id="welcome">Let's Get Reading!</h1>
     </header>
@@ -43,6 +44,8 @@ export default {
 
 <style scoped>
 
+
+
 #welcome {
   text-align: center;
   margin: 50px;
@@ -53,5 +56,13 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   margin: 20px;
+}
+.home {
+ background-image: url(../assets/library-background.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

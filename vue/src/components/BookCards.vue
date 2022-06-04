@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// import bookService from '../services/BookService.js'
 
 export default {
     name: "book-card",
@@ -27,15 +26,22 @@ export default {
             default: false
         }
     },
-    data() {
-        return {
-            isRead: false,
-        }
-    },
+     data() {
+         return {
+             book: {
+                 isRead: false,
+             }
+         }
+     },
     methods:{
-        // addToReadingList(book){
-            // let addedBook=Object.assign({read: false},book);
-        }
+        //  addToReadingList(book){
+        //     let addedBook=Object.assign({read: false},book);
+            
+                
+
+        
+
+        // }
        
     }
 

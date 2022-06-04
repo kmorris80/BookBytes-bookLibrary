@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="reading-list">
         <h1>Welcome to Your Reading List</h1>
 
         <reading-list></reading-list>
@@ -31,5 +31,14 @@ data() {
 </script>
 
 <style scoped>
+.reading-list {
+ background-image: url(../assets/library-background.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 
 </style>
