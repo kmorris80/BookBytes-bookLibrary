@@ -16,23 +16,37 @@
 </template>
 
 <script>
+// import bookService from '../services/BookService.js'
 
 export default {
     name: "book-card",
     props: {
+        book: Object,
         enableAdd: {
             type: Boolean,
             default: false
         }
     },
-    data() {
-        return {
-            book: {
-                isRead: false,
-            }
+    // data() {
+    //     return {
+    //         book: {
+    //             isRead: false,
+    //         }
+    //     }
+    // },
+    methods:{
+        // addToReadingList(book){
+            // let addedBook=Object.assign({read: false},book);
+            
+                
+
+        
+
         }
-    },
+       
+    }
 }
+
 </script>
 
 <style scoped>

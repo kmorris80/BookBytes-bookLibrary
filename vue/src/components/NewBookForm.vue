@@ -49,9 +49,15 @@
 </template>
 
 <script>
-import bookService from "../services/BookService";
+import bookService from "../services/BookService.js";
 export default {
   name: "new-book-form",
+  props:{
+    bookID:{
+      type: Number,
+      default:0
+    }
+  },
   data() {
     return {
       book: {
@@ -62,19 +68,39 @@ export default {
         character: "",
         // newRelease: false,
       },
+      errorMsg:""
     };
   },
   methods: {
     saveBook() {
-      bookService.create(this.book).then((response) => {
-        if (response.status == 201) {
-          window.alert("Book Created!");
-          this.$router.push("/addBook");
-        }
-      });
-    },
-  },
-};
+      const newBook ={
+        bookID: Number(this.$route.params.bookID),
+        title: this.book.title,
+        author: this.book.author,
+        genre: this.book.genre,
+        keyword: this.book.keyword,
+        character: this.book.character
+      }
+      if(this.bookID === 0){
+
+        bookService
+        .create(newBook)
+        .then((response)=>{
+          if(response.status === 201){
+            this.$router.push(`/book/${newBook}`)
+          }
+        })
+      }
+      //alternative method for adding book?
+      // bookService.create(this.book).then((response) => {
+      //   if (response.status == 201) {
+      //     window.alert("Book Created!");
+      //     this.$router.push("/addBook");
+      //   }
+      }
+    }
+  }
+
 </script>
 <style scoped>
 input {

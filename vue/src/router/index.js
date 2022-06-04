@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBook from '../views/NewBook.vue'
+import ReadingListView from '../views/ReadingListView'
 
 Vue.use(Router)
 
@@ -27,7 +28,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -63,15 +64,15 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: '/myReadingList',
-    //   name: "ReadingList",
-    //   component: ReadingListView,
-    //   meta:{
-    //     requiresAuth: true
-    //   }
+    {
+      path: '/myReadingList',
+      name: "ReadingList",
+      component: ReadingListView,
+      meta:{
+        requiresAuth: true
+      }
 
-    // }
+    }
   ]
 })
 
