@@ -26,25 +26,14 @@ export default {
             default: false
         }
     },
-     data() {
+    data() {
          return {
              book: {
                  isRead: false,
              }
          }
      },
-    methods:{
-        //  addToReadingList(book){
-        //     let addedBook=Object.assign({read: false},book);
-            
-                
-
-        
-
-        // }
-       
-    }
-
+}
 </script>
 
 <style scoped>
