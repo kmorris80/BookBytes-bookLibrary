@@ -62,8 +62,16 @@ const router = new Router({
       meta:{
         requiresAuth: true
       }
+    },
+    // {
+    //   path: '/myReadingList',
+    //   name: "ReadingList",
+    //   component: ReadingListView,
+    //   meta:{
+    //     requiresAuth: true
+    //   }
 
-    }
+    // }
   ]
 })
 
