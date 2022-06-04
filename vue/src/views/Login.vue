@@ -40,10 +40,8 @@
          v-model="user.password"
          required
        />
-       
       </div>
       <div>
-  
       <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Sign in</button>
      </div>
     <router-link :to="{ name: 'register' }">Need an account?</router-link>
@@ -61,7 +59,7 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
       invalidCredentials: false
     };
@@ -75,6 +73,7 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
+            
             // if isSystemAdmin this.$router.push("/addBook")
           }
         })
@@ -133,6 +132,11 @@ input {
   margin-top: 5px;
   border: solid 2px;
   font-size: 20px;
+}
+
+#checkbox-text {
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 

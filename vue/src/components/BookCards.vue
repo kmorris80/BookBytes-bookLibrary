@@ -1,39 +1,52 @@
 <template>
     <div class="book-card">
+        <div>
         <!-- Cover page of book perhaps -->
-        <h2>{{ book.title }}</h2>
+        <h2>Title {{ book.title }}</h2>
         <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" /> -->
         <h2>by {{ book.author }}</h2>
-        <h2>{{ book.isbn }}</h2>
-        <label for="checkbox"  id="checkbox-text">Have you read this book? </label>
-        <input type="checkbox" id="is-read" class="form-check-input" v-model="book.isRead">
+        <button class="btn btn-secondary" v-if="enableAdd">Add Book to My Reading List</button>
+        <div v-if="! enableAdd">
+            <label for="checkbox"  id="checkbox-text">Have you read this book? </label>
+            <input type="checkbox" id="is-read" class="form-check-input" v-model="book.isRead">
+        </div>
+        </div>
     </div>
      
 </template>
 
 <script>
-
-import bookService from "../services/BookService"
+// import bookService from '../services/BookService.js'
 
 export default {
-    name: "book-detail",
-    data() {
-        return {
-            book: {
-                id: null,
-                title: "",
-                author: "",
-                isbn: "",
-                isRead: false,
-            }
+    name: "book-card",
+    props: {
+        book: Object,
+        enableAdd: {
+            type: Boolean,
+            default: false
         }
     },
-    created() {
-        bookService.get(this.$route.params.id).then((response) => {
-            this.book = response.data;
-        })
-    },
+    // data() {
+    //     return {
+    //         book: {
+    //             isRead: false,
+    //         }
+    //     }
+    // },
+    methods:{
+        // addToReadingList(book){
+            // let addedBook=Object.assign({read: false},book);
+            
+                
+
+        
+
+        }
+       
+    }
 }
+
 </script>
 
 <style scoped>
@@ -42,11 +55,10 @@ export default {
     border: solid 10px;
     background-color: #86cacd;
     text-align: center;
-    border-radius: 25px    
+    border-radius: 25px;    
 }
 
 h2 {
-    border: solid 1px;
     margin-left: 20px;
     margin-right: 20px; 
     border-radius: 10px;
@@ -55,6 +67,10 @@ h2 {
 img {
     height: 20vh;
     padding: 10px;
+}
+
+button {
+    margin-bottom: 10px;
 }
 
 </style>

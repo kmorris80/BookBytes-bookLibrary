@@ -2,28 +2,31 @@
   <div class="home">
     <header>
       <h1 id="welcome">Let's Get Reading!</h1>
-      <div id="add-kid">
-      <!-- <button @click="showForm = !showForm">Add Kid</button> -->
-      </div>
-      
-      <!-- <add-kid v-show="showForm"></add-kid> -->
     </header>
-
-    <book-cards v-for="book in books" :key="book.id"></book-cards>
-    <book-cards></book-cards>
-    
+    <!-- <router-link :to="{ name: "ReadingList"}"></router-link> -->
+    <search-bar></search-bar>
+    <div id="book-cards">
+      <all-books v-for="book in books" :key="book.id"></all-books>
+      <all-books></all-books>
+      <all-books></all-books>
+      <all-books></all-books>
+      <all-books></all-books>
+      <all-books></all-books>
+    </div>
   </div>
 </template>
 
 <script>
-import bookCards from '../components/BookCards.vue';
 import bookService from '../services/BookService'
+import searchBar from '../components/SearchBar.vue'
+import AllBooks from '../components/AllBooks.vue';
 
 
 export default {
   name: "home",
   components: {
-    bookCards,
+    searchBar,
+    AllBooks
   },
   data() {
     return {
@@ -39,27 +42,16 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-
-  grid-template-areas: 
-  "header header header header"
-  "card card card card"
-  ;
-}
-
-header {
-  grid-area: header;
-}
-
-kid-cards {
-  grid-area: card;
-}
 
 #welcome {
   text-align: center;
   margin: 50px;
+}
+
+#book-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  margin: 20px;
 }
 </style>
