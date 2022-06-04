@@ -21,31 +21,23 @@
 export default {
     name: "book-card",
     props: {
-        book: Object,
+        // book: Object,
         enableAdd: {
             type: Boolean,
             default: false
         }
     },
-    // data() {
-    //     return {
-    //         book: {
-    //             isRead: false,
-    //         }
-    //     }
-    // },
+    data() {
+        return {
+            isRead: false,
+        }
+    },
     methods:{
         // addToReadingList(book){
             // let addedBook=Object.assign({read: false},book);
-            
-                
-
-        
-
         }
        
     }
-}
 
 </script>
 
