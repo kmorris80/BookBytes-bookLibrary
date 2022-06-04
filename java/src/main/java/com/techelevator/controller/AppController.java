@@ -13,9 +13,14 @@ import java.util.List;
 @PreAuthorize("isAuthenticated()")
 public class AppController {
 
+
+
     @Autowired
     BookDao bookDao;
 
+    public AppController(BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
 
     @RequestMapping(path = "/addBook", method = RequestMethod.POST)
     public Book addNewBook(@RequestBody Book book) {

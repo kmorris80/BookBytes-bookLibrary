@@ -5,7 +5,7 @@ public class Book {
     private int bookId;
     private String title;
     private String author;
-    private int isbn;
+    private String isbn;
     private String character;
     private String genre;
     private String keyword;
@@ -13,7 +13,7 @@ public class Book {
 
     public Book(){}
 
-    public Book(String title, String author, int isbn,  String character, String genre, String keyword, boolean newRelease) {
+    public Book(String title, String author, String isbn,  String character, String genre, String keyword, boolean newRelease) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
@@ -23,7 +23,7 @@ public class Book {
         this.newRelease = newRelease;
     }
 
-    public Book(int bookId, String title, String author, int isbn, String character, String genre, String keyword, boolean newRelease) {
+    public Book(int bookId, String title, String author, String isbn, String character, String genre, String keyword, boolean newRelease) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -58,12 +58,20 @@ public class Book {
         this.author = author;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(String character) {
+        this.character = character;
     }
 
     public String getGenre() {
@@ -80,14 +88,6 @@ public class Book {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
-    }
-
-    public String getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(String character) {
-        this.character = character;
     }
 
     public boolean isNewRelease() {

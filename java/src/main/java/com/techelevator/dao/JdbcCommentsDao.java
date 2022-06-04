@@ -29,7 +29,6 @@ public class JdbcCommentsDao implements CommentsDao{
 
     }
 
-
     @Override
     public Comments findCommentById(int commentId) {
         return null;
@@ -41,14 +40,19 @@ public class JdbcCommentsDao implements CommentsDao{
     }
 
     @Override
-    public Comments findAllCommentsByUserId(int userId) {
-        return null;
+    public List<Comments> findAllCommentsByUserId(int userId) {
+        List<Comments> commentListByUser = new ArrayList<>();
+        String sql = "SELECT * from flights JOIN ticket_flight ON flights.flight_id = ticket_flight.flight_id where ticket_id = ?";
+        SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, userId);
+        List<Comments> comments = new ArrayList<>();
+        while (results.next()) {
+            comments.add(commentsObjectMapper(results));
+
+        }
+        return commentListByUser;
     }
 
-    @Override
-    public Comments findCommentByUserId(int userId) {
-        return null;
-    }
+
     private Comments commentsObjectMapper(SqlRowSet results){
 
         Comments comments = new Comments();

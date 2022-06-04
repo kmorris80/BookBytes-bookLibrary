@@ -14,13 +14,13 @@ public class JdbcBookDao implements BookDao{
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcBookDao(DataSource ds){this.jdbcTemplate = new JdbcTemplate(ds);}
+    public JdbcBookDao(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}
 
 
     @Override
     public List<Book> findAllBooks() {
-        String sql = "SELECT * FROM book";
-        SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql);
+        String sql = "SELECT * FROM book;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         List<Book> books = new ArrayList<>();
         while (results.next()) {
             books.add(bookObjectMapper(results));
@@ -106,7 +106,7 @@ public class JdbcBookDao implements BookDao{
         book.setBookId(results.getInt("book_id"));
         book.setTitle(results.getString("title"));
         book.setAuthor(results.getString("author"));
-        book.setIsbn(results.getInt("isbn"));
+        book.setIsbn(results.getString("isbn"));
         book.setCharacter(results.getString("character"));
         book.setGenre(results.getString("genre"));
         book.setKeyword(results.getString("keyword"));
