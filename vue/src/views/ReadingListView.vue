@@ -1,20 +1,22 @@
 <template>
-    <div>
-        <h1>Welcome to Your Reading List</h1>
-
-        <reading-list></reading-list>
-
+    <div class="reading-list">
+        <header>
+          <h1>Welcome to Your Reading List</h1>
+        </header>
+      <div id="book-cards">
+        <book-cards :books="books" v-bind:enableAdd="false"></book-cards>
+      </div>
     </div>
 </template>
 
 <script>
-import readingList from '../components/ReadingList.vue'
+import BookCards from '../components/BookCards.vue'
 import bookService from '../services/BookService.js'
 
 export default {
     name: "readingList",
     components: {
-     readingList,
+     BookCards,
     
 },
 data() {
@@ -23,13 +25,33 @@ data() {
     }
   },
   created() {
-    bookService.getReadingList(this.userID).then((response) => {
+    bookService.list().then(response =>{
       this.books = response.data;
-    });
+    })
+
+    // bookService.getReadingList(this.userID).then((response) => {
+    //   this.books = response.data;
+    // });
   },
 }
 </script>
 
 <style scoped>
+.reading-list {
+ background-image: url(../assets/library-background.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#book-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  margin: 20px;
+}
 
 </style>

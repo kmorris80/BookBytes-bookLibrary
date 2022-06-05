@@ -55,7 +55,7 @@
 </template>
 
 <script>
- import bookService from '../services/BookService.js'
+import bookService from '../services/BookService.js'
 export default{
    name: 'book-list',
   data() {

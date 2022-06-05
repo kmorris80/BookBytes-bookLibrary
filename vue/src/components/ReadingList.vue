@@ -1,15 +1,21 @@
-<template>
-    <div>
+// <template>
+//     <div class="book-container">
+//  <book-cards v-bind:book="book" v-for="book in books" v-bind:key="book.id"/>
+//     </div>
+// </template>
 
-    </div>
-</template>
+// <script>
+// import BookCards from '../components/BookCards.vue';
 
-<script>
-export default {
+// export default {
+//     name: 'reading-list',
+//     components: {
+//         BookCards
+//     }
     
-}
-</script>
+// }
+// </script>
 
-<style scoped>
+// <style scoped>
 
-</style>
+// </style>

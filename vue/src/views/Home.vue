@@ -1,17 +1,13 @@
 <template>
   <div class="home">
+ 
     <header>
       <h1 id="welcome">Let's Get Reading!</h1>
     </header>
     <!-- <router-link :to="{ name: "ReadingList"}"></router-link> -->
     <search-bar></search-bar>
     <div id="book-cards">
-      <all-books v-for="book in books" :key="book.id"></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
+      <book-cards :books="books" v-bind:enableAdd="true"></book-cards>
     </div>
   </div>
 </template>
@@ -19,14 +15,13 @@
 <script>
 import bookService from '../services/BookService'
 import searchBar from '../components/SearchBar.vue'
-import AllBooks from '../components/AllBooks.vue';
-
+import BookCards from '../components/BookCards.vue'
 
 export default {
   name: "home",
   components: {
+    BookCards,
     searchBar,
-    AllBooks
   },
   data() {
     return {
@@ -43,6 +38,8 @@ export default {
 
 <style scoped>
 
+
+
 #welcome {
   text-align: center;
   margin: 50px;
@@ -53,5 +50,13 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   margin: 20px;
+}
+.home {
+ background-image: url(../assets/library-background.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
