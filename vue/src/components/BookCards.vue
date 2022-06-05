@@ -1,14 +1,14 @@
 <template>
     <div class="book-card">
-        <div v-for="book in books" v-bind:key="book.id">
+        <div>
         <!-- Cover page of book perhaps -->
+         <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
         <h2>{{ book.title }}</h2>
-        <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" /> -->
         <h2>by {{ book.author }}</h2>
         <button class="btn btn-secondary" v-if="enableAdd">Add Book to My Reading List</button>
         <div v-if="! enableAdd">
             <label for="checkbox"  id="checkbox-text">Have you read this book? </label>
-            <input type="checkbox" id="is-read" class="form-check-input" v-model="book.isRead">
+            <input type="checkbox" id="is-read" class="form-check-input">
         </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 
 export default {
     name: "book-card",
-    props: { books: Array,
+    props: { book: Object,
             enableAdd: {
                 type: Boolean, 
                 default: false

@@ -4,7 +4,7 @@
           <h1>Welcome to Your Reading List</h1>
         </header>
       <div id="book-cards">
-        <book-cards :books="books" v-bind:enableAdd="false"></book-cards>
+        <book-cards v-for="book in books" v-bind:key="book.id" :book="book" v-bind:enableAdd="false"></book-cards>
       </div>
     </div>
 </template>
@@ -28,10 +28,6 @@ data() {
     bookService.list().then(response =>{
       this.books = response.data;
     })
-
-    // bookService.getReadingList(this.userID).then((response) => {
-    //   this.books = response.data;
-    // });
   },
 }
 </script>

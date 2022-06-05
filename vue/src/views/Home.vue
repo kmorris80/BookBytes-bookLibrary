@@ -4,10 +4,9 @@
     <header>
       <h1 id="welcome">Let's Get Reading!</h1>
     </header>
-    <!-- <router-link :to="{ name: "ReadingList"}"></router-link> -->
     <search-bar></search-bar>
     <div id="book-cards">
-      <book-cards :books="books" v-bind:enableAdd="true"></book-cards>
+      <book-cards v-for="book in books" v-bind:key="book.id" :book="book" v-bind:enableAdd="true"></book-cards>
     </div>
   </div>
 </template>
