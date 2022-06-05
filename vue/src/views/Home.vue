@@ -2,7 +2,7 @@
   <div class="home">
  
     <header>
-      <h1 id="welcome">Let's Get Reading!</h1>
+        <h1 id="welcome">Let's Get Reading!</h1>
     </header>
     <search-bar></search-bar>
     <div id="book-cards">
@@ -41,7 +41,15 @@ export default {
 
 #welcome {
   text-align: center;
-  margin: 50px;
+  padding: 50px;
+  color: white;
+  font-weight: bolder;
+  font-size: 100px;
+  text-shadow:
+		-2px -2px 0 #000,
+		2px -2px 0 #000,
+		-2px 2px 0 #000,
+		2px 1px 0 #000;
 }
 
 #book-cards {

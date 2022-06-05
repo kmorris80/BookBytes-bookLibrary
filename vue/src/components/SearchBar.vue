@@ -1,7 +1,6 @@
 <template>
       <div id=searchBooks class="search">
         <div class="title-input spacing" id="title-field">
-          <label>Title:</label>
           <input
           class="form-control"
           type="text"
@@ -10,7 +9,6 @@
           />
         </div>
         <div class="author-input spacing" id="author-field">
-          <label>Author:</label>
           <input
           class="form-control"
           type="text"
@@ -21,7 +19,6 @@
 
         </div>
          <div class="character-input spacing" id="character-field">
-          <label>Character:</label>
           <input
           class="form-control"
           type="text"
@@ -31,7 +28,6 @@
           />
         </div>
          <div class="genre-input spacing" id="genre-field">
-          <label>Genre:</label>
           <input
           class="form-control"
           type="text"
@@ -41,7 +37,6 @@
           />
         </div>
          <div class="keyword-input spacing" id="keyword-field">
-          <label>Keyword:</label>
           <input
           class="form-control"
           type="text"
