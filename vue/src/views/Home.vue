@@ -7,12 +7,7 @@
     <!-- <router-link :to="{ name: "ReadingList"}"></router-link> -->
     <search-bar></search-bar>
     <div id="book-cards">
-      <all-books v-for="book in books" :key="book.id"></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
-      <all-books></all-books>
+      <book-cards :books="books" v-bind:enableAdd="true"></book-cards>
     </div>
   </div>
 </template>
@@ -20,14 +15,13 @@
 <script>
 import bookService from '../services/BookService'
 import searchBar from '../components/SearchBar.vue'
-import AllBooks from '../components/AllBooks.vue';
-
+import BookCards from '../components/BookCards.vue'
 
 export default {
   name: "home",
   components: {
+    BookCards,
     searchBar,
-    AllBooks
   },
   data() {
     return {

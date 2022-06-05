@@ -1,8 +1,8 @@
 <template>
     <div class="book-card">
-        <div>
+        <div v-for="book in books" v-bind:key="book.id">
         <!-- Cover page of book perhaps -->
-        <h2>Title {{ book.title }}</h2>
+        <h2>{{ book.title }}</h2>
         <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" /> -->
         <h2>by {{ book.author }}</h2>
         <button class="btn btn-secondary" v-if="enableAdd">Add Book to My Reading List</button>
@@ -19,20 +19,12 @@
 
 export default {
     name: "book-card",
-    props: {
-        // book: Object,
-        enableAdd: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data() {
-         return {
-             book: {
-                 isRead: false,
-             }
-         }
-     },
+    props: { books: Array,
+            enableAdd: {
+                type: Boolean, 
+                default: false
+            },
+    }
 }
 </script>
 
