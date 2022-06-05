@@ -8,7 +8,7 @@ import java.util.List;
 public interface ReadingListDao {
 
 
-    ReadingList findListByUserId (int userId);
+    List<ReadingList> findListByUserId (int userId);
 
 }
 

@@ -34,19 +34,23 @@ public class JdbcBookDao implements BookDao{
         String sql = "SELECT * FROM book where title = ?";
         SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, title);
 
+        Book book = null;
         if(results.next()){
-            return bookObjectMapper(results);
+            book = bookObjectMapper(results);
         }else {
             throw new RuntimeException("title" + title + "not found");
-        }
+        }return book;
     }
 
     @Override
     public Book addBook(Book book) {
-        String sql = "INSERT INTO book (title, author, isbn, genre, keyword, new_release) VALUES(?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getGenre(),book.getKeyword(), book.isNewRelease() );
-
+        String sql = "INSERT INTO book (title, author, isbn, character, genre, keyword, new_release) " +
+                "VALUES(?,?,?,?,?,?,?) RETURNING book_id;";
+        int bookId =
+        jdbcTemplate.queryForObject(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getCharacter(), book.getGenre(),book.getKeyword(), book.isNewRelease() );
+        book.setBookId(bookId);
         return book;
+
     }
 
     @Override
@@ -65,7 +69,7 @@ public class JdbcBookDao implements BookDao{
     @Override
     public Book findBookByGenre(String genre) {
 
-        String sql = "SELECT * FROM book WHERE genre = ?";
+        String sql = "SELECT * FROM book WHERE genre = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genre);
 
         if(results.next()){
@@ -78,7 +82,7 @@ public class JdbcBookDao implements BookDao{
     @Override
     public Book findBookByCharacter(String character) {
 
-        String sql = "SELECT * FROM book WHERE character = ?";
+        String sql = "SELECT * FROM book WHERE character = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, character);
 
         if(results.next()){
@@ -90,7 +94,7 @@ public class JdbcBookDao implements BookDao{
     @Override
     public Book findBookByAuthor(String author) {
 
-        String sql = "SELECT * FROM book WHERE author = ?";
+        String sql = "SELECT * FROM book WHERE author = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, author);
 
         if(results.next()){

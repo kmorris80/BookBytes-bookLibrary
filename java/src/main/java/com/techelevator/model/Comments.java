@@ -10,18 +10,18 @@ public class Comments {
     private int commentId;
     private int commentBy;
     private String comments;
-    private Date commentDate;
+    private LocalDate commentDate;
 
     public Comments() {
     }
 
-    public Comments(int commentBy, String comments, Date commentDate) {
+    public Comments(int commentBy, String comments, LocalDate commentDate) {
         this.commentBy = commentBy;
         this.comments = comments;
         this.commentDate = commentDate;
     }
 
-    public Comments(int commentId, int commentBy, String comments, Date commentDate) {
+    public Comments(int commentId, int commentBy, String comments, LocalDate commentDate) {
         this.commentId = commentId;
         this.commentBy = commentBy;
         this.comments = comments;
@@ -52,11 +52,11 @@ public class Comments {
         this.comments = comments;
     }
 
-    public Date getCommentDate() {
+    public LocalDate getCommentDate() {
         return commentDate;
     }
 
-    public void setCommentDate(Date commentDate) {
+    public void setCommentDate(LocalDate commentDate) {
         this.commentDate = commentDate;
 
     }

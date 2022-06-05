@@ -1,32 +1,37 @@
-INSERT INTO book (title, author, isbn, new_release)
-VALUES ('It Ends With Us', 'Colleen Hoover', '1501110365', 'false');
-INSERT INTO book (title, author, isbn, new_release)
-VALUES ('Where the Crawdads Sing', 'Delia Owens', '0735219109', 'false');
-INSERT INTO book (title, author, isbn, new_release)
-VALUES ('Verity', 'Colleen Hoover', '1538724731', 'false');
-INSERT INTO book (title, author, isbn, new_release)
-VALUES ('The Power of One More: The Ultimate Guide to Happiness and Success', 'Ed Mylett', '1119815363', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
+VALUES ('It Ends With Us', 'Colleen Hoover', '1501110365', 'Lily', 'Romance', 'Ends', 'false');
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
+VALUES ('Where the Crawdads Sing', 'Delia Owens', '0735219109', 'Kya' , 'Fiction','Crawdads', 'false');
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
+VALUES ('Verity', 'Colleen Hoover', '1538724731', 'Lowen', 'Thriller','Crawford', 'false');
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
+VALUES ('The Power of One More: The Ultimate Guide to Happiness and Success', 'Ed Mylett', '1119815363', 'N/A', 'Self Help', 'Ultimate', 'true');
+
+
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Oh, the Places Youll Go! ', 'Dr.Seuss', '9780679805274', 'false');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Book Lovers', 'Emily Henry', '0593334833', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Sparring Partners', 'John Grisham', '0385549326', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('The Bodies Of Others: The New Authoritarians, Covid-19 and the War Against the Human', 'Naomi Wolf', '1737478560', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Happy-Go-Lucky', 'David Sedaris', '0316392456', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Meant To Be', 'Emily Griffin', '0425286649', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Every Summer After', 'Carley Fortune', '0593438531', 'true');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Atomic Habits: An Easy & Proven Way to Build Good & Break Bad Ones', 'James Clear', '0735211299', 'false');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Ugly Love', 'Colleen Hoover', '1476753180', 'false');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('The Seven Husbands of Evelyn Hugo', 'Taylor Jenkins Reid', '1501161938', 'false');
-INSERT INTO book (title, author, isbn, new_release)
+INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
+
+
+
 VALUES ('The Plot Against the King', 'Kash Patel', '1955550123', 'true');
 INSERT INTO book (title, author, isbn, new_release)
 VALUES ('Reminders of Him', 'Colleen Hoover', '1542025605', 'false');
@@ -68,27 +73,3 @@ INSERT INTO book (title, author, isbn, new_release)
 VALUES ('1984', 'George Orwell', '9780451524935', 'false');
 INSERT INTO book (title, author, isbn, new_release)
 VALUES ('Becoming Supernatural: How Common People Are Doing the Uncommon', 'Dr. Joe Dispenza', '1781808317', 'false');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

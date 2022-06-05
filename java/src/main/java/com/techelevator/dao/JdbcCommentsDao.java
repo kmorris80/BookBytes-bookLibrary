@@ -4,17 +4,18 @@ import com.techelevator.model.Book;
 import com.techelevator.model.Comments;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcCommentsDao implements CommentsDao{
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcCommentsDao(DataSource ds){this.jdbcTemplate = new JdbcTemplate(ds);}
+    public JdbcCommentsDao(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}
 
 
     @Override
@@ -36,13 +37,20 @@ public class JdbcCommentsDao implements CommentsDao{
 
     @Override
     public Comments addComment(Comments comments) {
-        return null;
+        String sql = "INSERT INTO comments (comment_by, comments, comment_date)" +
+                "VALUES(?,?,?) RETURNING comment_id;";
+        int commentId =
+                jdbcTemplate.queryForObject(sql, Integer.class, comments.getCommentBy(), comments.getComments(), comments.getCommentDate());
+        comments.setCommentId(commentId);
+        return comments;
     }
 
     @Override
     public List<Comments> findAllCommentsByUserId(int userId) {
         List<Comments> commentListByUser = new ArrayList<>();
-        String sql = "SELECT * from flights JOIN ticket_flight ON flights.flight_id = ticket_flight.flight_id where ticket_id = ?";
+        String sql = "SELECT comments, comment_date FROM comments" +
+                "JOIN user_comments ON comments.comment_by = user_comments.user_id" +
+                "WHERE user_id = ?;";
         SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, userId);
         List<Comments> comments = new ArrayList<>();
         while (results.next()) {
@@ -59,7 +67,8 @@ public class JdbcCommentsDao implements CommentsDao{
         comments.setCommentId(results.getInt("comment_id"));
         comments.setCommentBy(results.getInt("comment_by"));
         comments.setComments(results.getString("author"));
-        comments.setCommentDate(results.getDate("comment_date"));
-        return comments;
+        if (results.getDate("comment_date") !=null ){
+            comments.setCommentDate(results.getDate("comment_date").toLocalDate());
+        } return comments;
     }
 }
