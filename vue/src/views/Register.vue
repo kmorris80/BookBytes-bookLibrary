@@ -1,7 +1,9 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h1 mb-3 font-weight-normal" id="create">Create Your Account</h1>
+      <header>
+      <img id = "createAccount" src="../assets/Register.png"/>
+      </header>
        <div>
        <img id = "people-with-books" src="../assets/PeopleWithBooks.jpeg"/>
       </div>
@@ -133,6 +135,11 @@ label {
 #create{
   padding-top: 30px;
   padding-bottom: 0px;
+}
+#createAccount{
+  text-align: center;
+  padding: 50px;
+  max-width: 2000px;
 }
 
  img{

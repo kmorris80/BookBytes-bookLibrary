@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <header>
-      <h1 id="welcome">Let's Get Reading!</h1>
+     <img id = "letsGetReading" src="../assets/LibraryProject.png"/>
     </header>
     <search-bar :books="books"></search-bar>
   </div>
@@ -54,5 +54,9 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+header{
+  text-align: center;
+  padding: 50px;
 }
 </style>

@@ -1,11 +1,12 @@
-<template>
+// <template> 
+<!-- //wrap in a v-if $store.state.user.permission - allow show page, if not show "you don't have access" -->
   <div class="text-center">
     <form class="new-book-form" v-on:submit.prevent="saveBook">
       <header>
-          <h1 id="welcome">New Book Form</h1>
+        <img id = "NewBookForm" src="../assets/NewBookForm.png"/>
         </header>
         <div class ="img">
-      <img id = "butterfly-book" src="../assets/butterflyBook.jpeg"/>
+    
       </div>
       <div class="input">
         <input
@@ -129,10 +130,10 @@ input {
   font-size: 20px;
   font-weight: bolder;
 }
-#butterfly-book{
-  max-width: 200px;
-}
+
 header{
-  padding-top: 20px;
+  text-align: center;
+  padding: 50px;
 }
+
 </style>

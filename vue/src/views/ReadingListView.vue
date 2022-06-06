@@ -1,7 +1,7 @@
 <template>
     <div class="reading-list">
         <header>
-          <h1 id="welcome">My Reading List</h1>
+          <img id = "ReadingList" src="../assets/MyReadingList.png"/>
         </header>
       <div id="book-cards">
         <book-cards v-for="book in $store.state.addedBooks" :key="book.id" :book="book"></book-cards>
@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .reading-list {
- background-image: url(../assets/library-background.jpeg);
+ background-image: url(../assets/readingNook.jpeg);
   background-repeat: none;
   height: 100vh;
   background-position: center;
@@ -52,4 +52,8 @@ export default {
 		2px 1px 0 #000;
 }
 
+header{
+  text-align: center;
+  padding: 50px;
+}
 </style>

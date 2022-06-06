@@ -2,7 +2,7 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <header class="one">
-      <h1 class="h1 mb-3 font-weight-normal" id="welcome-banner">Start Your Book Adventure!</h1>
+      <img id = "LogIn" src="../assets/LogIn.png"/>
       </header>
       <div class ="two">
       <img id = "swim" src="../assets/CityBooks.jpeg"/>
@@ -144,6 +144,11 @@ input {
 #checkbox-text {
   font-size: 20px;
   font-weight: bolder;
+}
+#LogIn{
+  text-align: center;
+  padding-top: 30px;
+  max-width: 1000px;
 }
 
 
