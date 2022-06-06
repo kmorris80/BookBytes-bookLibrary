@@ -50,13 +50,13 @@
 </template>
 
 <script>
-import bookService from '../services/BookService.js'
 export default{
    name: 'book-list',
+   props: {
+     books: Array,
+   },
   data() {
     return {
-      books: [],
-
       filter:{
         title: '',
         author: '',
@@ -70,32 +70,23 @@ export default{
     filteredBooks(){
       let filteredBooks= this.books;
       if(this.filter.title !=''){
-        filteredBooks = filteredBooks.filter((books)=>books.title.toLowerCase().includes(this.filter.title.toLowerCase()))
+        filteredBooks = filteredBooks.filter((book)=>book.title.toLowerCase().includes(this.filter.title.toLowerCase()))
       }
       if(this.filter.author !=''){
-        filteredBooks = filteredBooks.filter((books)=>books.author.toLowerCase().includes(this.filter.author.toLowerCase()))
+        filteredBooks = filteredBooks.filter((book)=>book.author.toLowerCase().includes(this.filter.author.toLowerCase()))
       }
       if(this.filter.character !=''){
-        filteredBooks = filteredBooks.filter((books)=>books.character.toLowerCase().includes(this.filter.character.toLowerCase()))
+        filteredBooks = filteredBooks.filter((book)=>book.character.toLowerCase().includes(this.filter.character.toLowerCase()))
       }
       if(this.filter.genre !=''){
-        filteredBooks = filteredBooks.filter((books)=>books.genre.toLowerCase().includes(this.filter.genre.toLowerCase()))
+        filteredBooks = filteredBooks.filter((book)=>book.genre.toLowerCase().includes(this.filter.genre.toLowerCase()))
       }
       if(this.filter.keyWord !=''){
-        filteredBooks = filteredBooks.filter((books)=>books.keyWord.toLowerCase().includes(this.filter.keyWord.toLowerCase()))
+        filteredBooks = filteredBooks.filter((book)=>book.keyWord.toLowerCase().includes(this.filter.keyWord.toLowerCase()))
       }
       return filteredBooks;
-
     }
-
   },
-  methods:{
-  created(){
-    bookService.list().then((response) =>{
-      this.books = response.data;
-    })
-  }
-  }
 }
 </script>
 
