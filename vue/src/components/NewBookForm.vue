@@ -1,6 +1,12 @@
 <template>
   <div class="text-center">
     <form class="new-book-form" v-on:submit.prevent="saveBook">
+      <header>
+          <h1 id="welcome">New Book Form</h1>
+        </header>
+        <div class ="img">
+      <img id = "butterfly-book" src="../assets/butterflyBook.jpeg"/>
+      </div>
       <div class="input">
         <input
           class="form-control"
@@ -122,5 +128,11 @@ input {
 #checkbox-text {
   font-size: 20px;
   font-weight: bolder;
+}
+#butterfly-book{
+  max-width: 200px;
+}
+header{
+  padding-top: 20px;
 }
 </style>
