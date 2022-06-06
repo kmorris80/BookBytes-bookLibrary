@@ -1,17 +1,16 @@
 <template>
     <div class="reading-list">
         <header>
-          <h1>Welcome to Your Reading List</h1>
+          <h1 id="welcome">My Reading List</h1>
         </header>
       <div id="book-cards">
-        <book-cards :books="books" v-bind:enableAdd="false"></book-cards>
+        <book-cards v-for="book in $store.state.addedBooks" :key="book.id" :book="book"></book-cards>
       </div>
     </div>
 </template>
 
 <script>
 import BookCards from '../components/BookCards.vue'
-import bookService from '../services/BookService.js'
 
 export default {
     name: "readingList",
@@ -19,20 +18,6 @@ export default {
      BookCards,
     
 },
-data() {
-    return {
-      books: []
-    }
-  },
-  created() {
-    bookService.list().then(response =>{
-      this.books = response.data;
-    })
-
-    // bookService.getReadingList(this.userID).then((response) => {
-    //   this.books = response.data;
-    // });
-  },
 }
 </script>
 
@@ -52,6 +37,19 @@ data() {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   margin: 20px;
+}
+
+#welcome {
+  text-align: center;
+  padding: 50px;
+  color: white;
+  font-weight: bolder;
+  font-size: 100px;
+  text-shadow:
+		-2px -2px 0 #000,
+		2px -2px 0 #000,
+		-2px 2px 0 #000,
+		2px 1px 0 #000;
 }
 
 </style>
