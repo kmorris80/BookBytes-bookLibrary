@@ -38,7 +38,7 @@
           class="form-control"
           type="text"
           placeholder="Keyword"
-          v-model="filter.keyWord"
+          v-model="filter.keyword"
         />
       </div>
     </div>
@@ -69,7 +69,7 @@ export default {
         author: "",
         character: "",
         genre: "",
-        keyWord: "",
+        keyword: "",
       },
     };
   },
@@ -100,7 +100,7 @@ export default {
       }
       if (this.filter.keyWord != "") {
         filteredBooks = filteredBooks.filter((book) =>
-          book.keyWord.toLowerCase().includes(this.filter.keyWord.toLowerCase())
+          book.keyword.toLowerCase().includes(this.filter.keyword.toLowerCase())
         );
       }
       return filteredBooks;
