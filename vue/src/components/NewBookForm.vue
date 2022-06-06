@@ -32,6 +32,12 @@
           placeholder="Character"
           v-model="book.character"
         />
+         <input
+          class="form-control"
+          type="text"
+          placeholder="ISBN"
+          v-model="book.isbn"
+        />
       </div>
       <!-- <div>
         <label for="new-release-input" id="checkbox-text">New Release:</label>
@@ -52,12 +58,7 @@
 import bookService from "../services/BookService.js";
 export default {
   name: "new-book-form",
-  props:{
-    bookID:{
-      type: Number,
-      default:0
-    }
-  },
+
   data() {
     return {
       book: {
@@ -66,38 +67,40 @@ export default {
         genre: "",
         keyword: "",
         character: "",
-        // newRelease: false,
+        isbn:"",
+        newRelease: false,
       },
-      errorMsg:""
     };
   },
   methods: {
-    saveBook() {
-      const newBook ={
-        bookID: Number(this.$route.params.bookID),
-        title: this.book.title,
-        author: this.book.author,
-        genre: this.book.genre,
-        keyword: this.book.keyword,
-        character: this.book.character
-      }
-      if(this.bookID === 0){
-
+    
+      // const newBook ={
+      //   title: this.book.title,
+      //   author: this.book.author,
+      //   genre: this.book.genre,
+      //   keyword: this.book.keyword,
+      //   character: this.book.character
+      // }
+       saveBook() {
         bookService
-        .create(newBook)
+        .create(this.book)
         .then((response)=>{
           if(response.status === 201){
-            this.$router.push(`/book/${newBook}`)
+            window.alert("Book Created!");
+            this.$router.push(`/addBook`)
           }
         })
+        // .catch(error =>{
+
+       
       }
       //alternative method for adding book?
       // bookService.create(this.book).then((response) => {
       //   if (response.status == 201) {
-      //     window.alert("Book Created!");
+      //    
       //     this.$router.push("/addBook");
       //   }
-      }
+      // }
     }
   }
 

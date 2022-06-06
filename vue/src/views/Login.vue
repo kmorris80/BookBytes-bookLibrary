@@ -56,6 +56,7 @@ export default {
   name: "login",
   components: {},
   data() {
+    
     return {
       user: {
         username: "",
@@ -89,7 +90,9 @@ export default {
           }
         });
     }
-  }
+ 
+    }
+  
 };
 </script>
 
