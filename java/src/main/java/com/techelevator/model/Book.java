@@ -10,28 +10,34 @@ public class Book {
     private String genre;
     private String keyword;
     private boolean newRelease;
+    private boolean isRead;
+    private boolean isAdded;
 
     public Book(){}
 
-    public Book(String title, String author, String isbn,  String character, String genre, String keyword, boolean newRelease) {
+    public Book(String title, String author, String isbn, String character, String genre, String keyword, boolean newRelease, boolean isRead, boolean isAdded) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
+        this.character = character;
         this.genre = genre;
         this.keyword = keyword;
-        this.character = character;
         this.newRelease = newRelease;
+        this.isRead = isRead;
+        this.isAdded = isAdded;
     }
 
-    public Book(int bookId, String title, String author, String isbn, String character, String genre, String keyword, boolean newRelease) {
+    public Book(int bookId, String title, String author, String isbn, String character, String genre, String keyword, boolean newRelease, boolean isRead, boolean isAdded) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
+        this.character = character;
         this.genre = genre;
         this.keyword = keyword;
-        this.character = character;
         this.newRelease = newRelease;
+        this.isRead = isRead;
+        this.isAdded = isAdded;
     }
 
     public int getBookId() {
@@ -98,17 +104,35 @@ public class Book {
         this.newRelease = newRelease;
     }
 
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
+    }
+
+    public boolean isAdded() {
+        return isAdded;
+    }
+
+    public void setAdded(boolean added) {
+        isAdded = added;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", isbn=" + isbn +
+                ", isbn='" + isbn + '\'' +
                 ", character='" + character + '\'' +
                 ", genre='" + genre + '\'' +
                 ", keyword='" + keyword + '\'' +
                 ", newRelease=" + newRelease +
+                ", isRead=" + isRead +
+                ", isAdded=" + isAdded +
                 '}';
     }
 }

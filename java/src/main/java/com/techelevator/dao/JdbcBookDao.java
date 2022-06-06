@@ -5,16 +5,17 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcBookDao implements BookDao{
+public class JdbcBookDao implements BookDao {
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcBookDao(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}
+    public JdbcBookDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
 
     @Override
@@ -30,28 +31,39 @@ public class JdbcBookDao implements BookDao{
     }
 
     @Override
-    public Book findBookByTitle (String title) {
+    public Book findBookByTitle(String title) {
         String sql = "SELECT * FROM book where title = ?";
         SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, title);
 
         Book book = null;
-        if(results.next()){
+        if (results.next()) {
             book = bookObjectMapper(results);
-        }else {
+        } else {
             throw new RuntimeException("title" + title + "not found");
-        }return book;
+        }
+        return book;
     }
 
     @Override
     public Book addBook(Book book) {
-        String sql = "INSERT INTO book (title, author, isbn, character, genre, keyword, new_release) " +
-                "VALUES(?,?,?,?,?,?,?) RETURNING book_id;";
+        String sql = "INSERT INTO book (title, author, isbn, character, genre, keyword, new_release, is_read, is_added) " +
+                "VALUES(?,?,?,?,?,?,?,?,?) RETURNING book_id;";
         int bookId =
-        jdbcTemplate.queryForObject(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getCharacter(), book.getGenre(),book.getKeyword(), book.isNewRelease() );
+                jdbcTemplate.queryForObject(sql, Integer.class, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getCharacter(), book.getGenre(), book.getKeyword(), book.isNewRelease(), book.isRead(), book.isAdded());
         book.setBookId(bookId);
         return book;
-
     }
+
+
+        @Override
+        public Book updateBook(Book book, int bookId) {
+//ask about this
+            String sql = "UPDATE book SET title = ?, author =?, isbn = ?, character = ?, genre = ?, keyword = ?, new_release = ?, is_read = ?, is_added = ?" +
+                    "WHERE book_id =?;";
+           jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getIsbn(), book.getCharacter(), book.getGenre(),book.getKeyword(), book.isNewRelease(), book.isRead(), book.isAdded(), book.getBookId() );
+
+            return book;
+        }
 
     @Override
     public Book findBookByKeyword(String keyword) {
@@ -115,6 +127,8 @@ public class JdbcBookDao implements BookDao{
         book.setGenre(results.getString("genre"));
         book.setKeyword(results.getString("keyword"));
         book.setNewRelease(results.getBoolean("new_release"));
+        book.setRead(results.getBoolean("is_read"));
+        book.setAdded(results.getBoolean("is_added"));
         return book;
     }
 }

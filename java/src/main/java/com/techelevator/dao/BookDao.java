@@ -13,6 +13,8 @@ public interface BookDao {
 
     Book addBook (Book book);
 
+    Book updateBook(Book book, int bookId) ;
+
     Book findBookByCharacter (String character);
 
     Book findBookByGenre (String genre);
