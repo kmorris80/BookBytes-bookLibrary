@@ -86,8 +86,8 @@ export default {
         .create(this.book)
         .then((response)=>{
           if(response.status === 201){
-            window.alert("Book Created!");
             this.$router.push(`/addBook`)
+            window.alert("Book Created!");
           }
         })
         // .catch(error =>{

@@ -4,14 +4,13 @@
           <h1 id="welcome">My Reading List</h1>
         </header>
       <div id="book-cards">
-        <book-cards v-for="book in books" v-bind:key="book.id" :book="book"></book-cards>
+        <book-cards v-for="book in $store.state.addedBooks" :key="book.id" :book="book"></book-cards>
       </div>
     </div>
 </template>
 
 <script>
 import BookCards from '../components/BookCards.vue'
-import bookService from '../services/BookService.js'
 
 export default {
     name: "readingList",
@@ -19,16 +18,6 @@ export default {
      BookCards,
     
 },
-data() {
-    return {
-      books: []
-    }
-  },
-  created() {
-    bookService.list().then(response =>{
-      this.books = response.data;
-    })
-  },
 }
 </script>
 

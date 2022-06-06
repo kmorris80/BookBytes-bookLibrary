@@ -1,32 +1,25 @@
 <template>
   <div class="home">
- 
     <header>
-        <h1 id="welcome">Let's Get Reading!</h1>
+      <h1 id="welcome">Let's Get Reading!</h1>
     </header>
-    <search-bar :books="books" ></search-bar>
-    <div id="book-cards">
-      <book-cards v-for="book in books" :key="book.id" :book="book" 
-      :enableAdd="true"></book-cards>
-    </div>
+    <search-bar :books="books"></search-bar>
   </div>
 </template>
 
 <script>
-import bookService from '../services/BookService'
-import searchBar from '../components/SearchBar.vue'
-import BookCards from '../components/BookCards.vue'
+import bookService from "../services/BookService";
+import searchBar from "../components/SearchBar.vue";
 
 export default {
   name: "home",
   components: {
-    BookCards,
     searchBar,
   },
   data() {
     return {
       books: [],
-    }
+    };
   },
   created() {
     bookService.list().then((response) => {
@@ -37,20 +30,14 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 #welcome {
   text-align: center;
   padding: 50px;
   color: white;
   font-weight: bolder;
   font-size: 100px;
-  text-shadow:
-		-2px -2px 0 #000,
-		2px -2px 0 #000,
-		-2px 2px 0 #000,
-		2px 1px 0 #000;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 1px 0 #000;
 }
 
 #book-cards {
@@ -59,8 +46,9 @@ export default {
   gap: 25px;
   margin: 20px;
 }
+
 .home {
- background-image: url(../assets/library-background.jpeg);
+  background-image: url(../assets/library-background.jpeg);
   background-repeat: none;
   height: 100vh;
   background-position: center;
