@@ -4,9 +4,10 @@
     <header>
         <h1 id="welcome">Let's Get Reading!</h1>
     </header>
-    <search-bar :books="books"></search-bar>
+    <search-bar :books="books" ></search-bar>
     <div id="book-cards">
-      <book-cards v-for="book in books" v-bind:key="book.id" :book="book" v-bind:enableAdd="true"></book-cards>
+      <book-cards v-for="book in books" :key="book.id" :book="book" 
+      :enableAdd="true"></book-cards>
     </div>
   </div>
 </template>
@@ -24,7 +25,7 @@ export default {
   },
   data() {
     return {
-      books: []
+      books: [],
     }
   },
   created() {
