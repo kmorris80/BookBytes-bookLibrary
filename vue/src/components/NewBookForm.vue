@@ -116,8 +116,7 @@ export default {
 input {
   margin-bottom: 20px;
   margin-top: 5px;
-
-  border: solid 2px;
+  outline: solid 2px #f3969a;
   font-size: 20px;
 }
 
@@ -134,6 +133,10 @@ input {
 header{
   text-align: center;
   padding: 50px;
+}
+
+button{
+  box-shadow: grey;
 }
 
 </style>
