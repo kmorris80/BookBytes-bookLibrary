@@ -32,7 +32,7 @@ public class JdbcBookDao implements BookDao {
 
     @Override
     public Book findBookByTitle(String title) {
-        String sql = "SELECT * FROM book where title = ?";
+        String sql = "SELECT * FROM book where title = ?;";
         SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, title);
 
         Book book = null;

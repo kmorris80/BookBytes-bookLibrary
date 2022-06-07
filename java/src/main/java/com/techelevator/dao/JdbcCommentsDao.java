@@ -37,18 +37,18 @@ public class JdbcCommentsDao implements CommentsDao{
 
     @Override
     public Comments addComment(Comments comments) {
-        String sql = "INSERT INTO comments (comment_by, comments, comment_date)" +
-                "VALUES(?,?,?) RETURNING comment_id;";
+        String sql = "INSERT INTO comments (forum_id, comment_by, comments, comment_date)" +
+                "VALUES(?,?,?,?) RETURNING comment_id;";
         int commentId =
-                jdbcTemplate.queryForObject(sql, Integer.class, comments.getCommentBy(), comments.getComments(), comments.getCommentDate());
+                jdbcTemplate.queryForObject(sql, Integer.class, comments.getForumId(), comments.getCommentBy(), comments.getComments(), comments.getCommentDate());
         comments.setCommentId(commentId);
         return comments;
+
     }
 
     @Override
     public List<Comments> findAllCommentsByUserId(int userId) {
-        List<Comments> commentListByUser = new ArrayList<>();
-        String sql = "SELECT comments, comment_date FROM comments" +
+        String sql = "SELECT * FROM comments" +
                 "JOIN user_comments ON comments.comment_by = user_comments.user_id" +
                 "WHERE user_id = ?;";
         SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, userId);
@@ -57,7 +57,21 @@ public class JdbcCommentsDao implements CommentsDao{
             comments.add(commentsObjectMapper(results));
 
         }
-        return commentListByUser;
+        return comments;
+    }
+
+    @Override
+    public List<Comments> findAllCommentsByForumId(int forumId) {
+        String sql = "SELECT * FROM comments" +
+                "JOIN forum ON comments.forum_id = forum.forum_id" +
+                "WHERE forum_id = ?;";
+        SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, forumId);
+        List<Comments> comments = new ArrayList<>();
+        while (results.next()) {
+            comments.add(commentsObjectMapper(results));
+
+        }
+        return comments;
     }
 
 
@@ -65,8 +79,9 @@ public class JdbcCommentsDao implements CommentsDao{
 
         Comments comments = new Comments();
         comments.setCommentId(results.getInt("comment_id"));
+        comments.setForumId(results.getInt("forum_id"));
         comments.setCommentBy(results.getInt("comment_by"));
-        comments.setComments(results.getString("author"));
+        comments.setComments(results.getString("comments"));
         if (results.getDate("comment_date") !=null ){
             comments.setCommentDate(results.getDate("comment_date").toLocalDate());
         } return comments;

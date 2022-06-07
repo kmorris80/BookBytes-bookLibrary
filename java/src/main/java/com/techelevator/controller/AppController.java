@@ -2,8 +2,10 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BookDao;
 import com.techelevator.dao.CommentsDao;
+import com.techelevator.dao.ForumDao;
 import com.techelevator.model.Book;
 import com.techelevator.model.Comments;
+import com.techelevator.model.Forum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,9 @@ public class AppController {
 
     @Autowired
     CommentsDao commentsDao;
+
+    @Autowired
+    ForumDao forumDao;
 
     // BOOK URL REQUESTS
     //update book status
@@ -71,21 +76,41 @@ public class AppController {
 
     }
 
-    // FORUM URL REQUESTS
-    @RequestMapping(path = "/forum", method = RequestMethod.GET)
+    // COMMENTS URL REQUESTS
+    @RequestMapping(path = "/comment", method = RequestMethod.GET)
     public List<Comments> getComments() {
         return commentsDao.getAllComments();
     }
 
-    @RequestMapping(path = "/forum/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/userComment/{id}", method = RequestMethod.GET)
     public List<Comments> getCommentsByUser(@PathVariable int userId) {
         return commentsDao.findAllCommentsByUserId(userId);
     }
-
+    @RequestMapping(path = "/forumComment/{id}", method = RequestMethod.GET)
+    public List<Comments> getCommentsByForum(@PathVariable int forumId) {
+        return commentsDao.findAllCommentsByForumId(forumId);
+    }
     @RequestMapping(path = "/addComment", method = RequestMethod.POST)
     public Comments addNewComment(@RequestBody Comments comments) {
         //System.out.println("DEBUG, what the object looks like:");
         return commentsDao.addComment(comments);
     }
+    // FORUM URL REQUESTS
 
+    @RequestMapping(path = "/forum", method = RequestMethod.GET)
+    public List<Forum> getForums() {
+        return forumDao.findAllForums();
+    }
+
+    @RequestMapping(path = "/forum/{topic}", method = RequestMethod.GET)
+    public Forum forumTopic(@PathVariable String topic) {
+        // System.out.println("DEBUG, what the object looks like: ");
+        return forumDao.findForumByTopic(topic);
+    }
+
+    @RequestMapping(path = "/addForum", method = RequestMethod.POST)
+    public Forum addNewForum(@RequestBody Forum forum) {
+        //System.out.println("DEBUG, what the object looks like:");
+        return forumDao.addForum(forum);
+    }
 }
