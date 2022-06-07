@@ -12,10 +12,8 @@
         Add Book to My Reading List
       </button>
       <div v-if="!enableAdd">
-        <label for="checkbox" id="checkbox-text"
-          >Have you read this book?
-        </label>
-        <input type="checkbox" id="is-read" class="form-check-input" />
+        <button class="btn btn-secondary" v-show="isRead" @click="toggleReadButton(true)">Mark Read</button>
+        <button class="btn btn-secondary" v-show="isRead" @click="toggleReadButton(false)">Mark Unread</button>
       </div>
     </div>
   </div>
@@ -30,12 +28,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    data(){
+      return {
+        isRead: true,
+      }
+    }
   },
   methods: {
       addToReadingList(book) {
           let addedBook = Object.assign(book);
           this.$store.commit('SAVE_BOOK', addedBook)
           window.alert("Successfully added!")
+      },
+      toggleReadButton(value) {
+        this.isRead = value;
       }
   }
 };
