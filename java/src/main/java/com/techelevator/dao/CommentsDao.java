@@ -15,4 +15,5 @@ public interface CommentsDao {
 
     List<Comments> findAllCommentsByUserId (int userId);
 
+    List<Comments> findAllCommentsByForumId(int forumId);
 }
