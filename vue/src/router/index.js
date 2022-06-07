@@ -8,6 +8,7 @@ import store from '../store/index'
 import NewBook from '../views/NewBook.vue'
 import ReadingListView from '../views/ReadingListView.vue'
 import ForumDetailView from '../views/ForumDetailView.vue'
+import CreateMessage from '../components/CreateMessage.vue'
 
 Vue.use(Router)
 
@@ -77,7 +78,15 @@ const router = new Router({
       path: '/forum-detail',
       name: "forum-detail",
       component: ForumDetailView,
-      meta: {
+      meta:{
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/add-message',
+      name: 'add-message',
+      component: CreateMessage,
+      meta:{
         requiresAuth: true
       }
     }
