@@ -1,7 +1,6 @@
 <template>
   <div class="book-card">
     <div>
-      <!-- Cover page of book perhaps -->
       <img
         v-if="book.isbn"
         v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"
@@ -12,8 +11,8 @@
         Add Book to My Reading List
       </button>
       <div v-if="!enableAdd">
-        <button class="btn btn-secondary" v-show="isRead" @click="toggleReadButton(true)">Mark Read</button>
-        <button class="btn btn-secondary" v-show="isRead" @click="toggleReadButton(false)">Mark Unread</button>
+        <button class="btn btn-secondary" v-if="!isRead" @click.prevent="toggleReadButton">Mark Read</button>
+        <button class="btn btn-secondary" v-if="isRead" @click.prevent="toggleReadButton">Mark Unread</button>
       </div>
     </div>
   </div>
@@ -28,10 +27,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    data(){
-      return {
-        isRead: true,
-      }
+  },
+  data() {
+    return {
+      isRead: false,
     }
   },
   methods: {
@@ -40,8 +39,8 @@ export default {
           this.$store.commit('SAVE_BOOK', addedBook)
           window.alert("Successfully added!")
       },
-      toggleReadButton(value) {
-        this.isRead = value;
+      toggleReadButton() {
+        this.isRead = !this.isRead;
       }
   }
 };

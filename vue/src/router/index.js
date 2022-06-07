@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBook from '../views/NewBook.vue'
 import ReadingListView from '../views/ReadingListView.vue'
+import ForumDetailView from '../views/ForumDetailView.vue'
 
 Vue.use(Router)
 
@@ -71,7 +72,14 @@ const router = new Router({
       meta:{
         requiresAuth: true
       }
-
+    },
+    {
+      path: '/forum-detail',
+      name: "forum-detail",
+      component: ForumDetailView,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
