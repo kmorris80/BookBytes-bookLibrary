@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    addedBooks: []
+    addedBooks: [],
+    username: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -35,12 +36,16 @@ export default new Vuex.Store({
     LOGOUT(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      state.username = '';
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
     },
     SAVE_BOOK(state, book) {
       state.addedBooks.push(book);
+    },
+    SET_USERNAME(state, username) {
+      state.username = username;
     }
   },
 })

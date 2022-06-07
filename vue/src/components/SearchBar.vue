@@ -3,7 +3,8 @@
     <div class="search">
       <div class="title-input spacing" id="title-field">
         <input
-          class="form-control"
+           class="form-control form-control-lg"
+          id="inputLarge"
           type="text"
           placeholder="Title"
           v-model="filter.title"
@@ -11,7 +12,8 @@
       </div>
       <div class="author-input spacing" id="author-field">
         <input
-          class="form-control"
+           class="form-control form-control-lg"
+          id="inputLarge"
           type="text"
           placeholder="Author"
           v-model="filter.author"
@@ -19,7 +21,8 @@
       </div>
       <div class="character-input spacing" id="character-field">
         <input
-          class="form-control"
+          class="form-control form-control-lg"
+          id="inputLarge"
           type="text"
           placeholder="Character"
           v-model="filter.character"
@@ -27,7 +30,8 @@
       </div>
       <div class="genre-input spacing" id="genre-field">
         <input
-          class="form-control"
+          class="form-control form-control-lg"
+          id="inputLarge"
           type="text"
           placeholder="Genre"
           v-model="filter.genre"
@@ -35,7 +39,8 @@
       </div>
       <div class="keyword-input spacing" id="keyword-field">
         <input
-          class="form-control"
+           class="form-control form-control-lg"
+          id="inputLarge"
           type="text"
           placeholder="Keyword"
           v-model="filter.keyword"
@@ -127,5 +132,10 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   margin: 20px;
+}
+
+input {
+outline: solid 2px #f3969a;
+
 }
 </style>
