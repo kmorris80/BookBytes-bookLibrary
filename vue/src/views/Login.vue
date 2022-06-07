@@ -73,13 +73,12 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            // if(response.data.user.is_system_admin == false) {
+            // this.$store.commit("SET_USERNAME", response.data.user.username);
+            if(response.data.user.username !== "admin") {
               this.$router.push("/");
-            // }else {
-            //   this.$router.push("/addBook")
-            // }
-            
-            // if isSystemAdmin this.$router.push("/addBook")
+            }else {
+              this.$router.push("/addBook")
+            }
           }
         })
         .catch(error => {

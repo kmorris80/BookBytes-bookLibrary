@@ -61,8 +61,7 @@ const router = new Router({
       name: "AddBook",
       component: NewBook,
       meta:{
-        requiresAuth: true, 
-        permission: 'ROLE_ADMIN'
+        requiresAuth: true
       }
     },
     {
