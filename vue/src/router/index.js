@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBook from '../views/NewBook.vue'
 import ReadingListView from '../views/ReadingListView.vue'
+import ForumView from '../views/ForumView.vue'
 
 Vue.use(Router)
 
@@ -71,10 +72,18 @@ const router = new Router({
       meta:{
         requiresAuth: true
       }
-
+    },
+    {
+    path: '/forumView',
+    name: "ForumView",
+    component: ForumView,
+    meta:{
+      requiresAuth: true
+    }
     }
   ]
-})
+    })
+  
 
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
