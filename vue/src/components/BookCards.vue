@@ -63,4 +63,7 @@ img {
 button {
   margin-bottom: 10px;
 }
+#checkbox-text{
+  font-size: 20px;
+}
 </style>

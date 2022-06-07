@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .reading-list {
- background-image: url(../assets/readingNook.jpeg);
+ background-image: url(../assets/readingNook2.png);
   background-repeat: none;
   height: 100vh;
   background-position: center;
