@@ -15,15 +15,13 @@
                      v-bind:to="{name: 'Messages', params: { id: forum.id} }">
                      {{forum.forumTopic}}</router-link>
                  </td>
-                 <td>
-                      <td>
             <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
-          </td>
+          </tr>
                  
 
          </tbody>
     </table>    
-<div>
+</div>
 
 </template>
 

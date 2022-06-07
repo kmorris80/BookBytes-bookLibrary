@@ -12,7 +12,7 @@
             <textarea type="" name="message" placeholder="Message content"/>
         </div>
         <div id="button">
-            <button class="btn btn-primary">Post Message</button>
+            <button class="btn btn-secondary">Post Message</button>
         </div>
     </form>
     </div>
