@@ -5,7 +5,7 @@
       <img id = "createAccount" src="../assets/Register.png"/>
       </header>
        <div>
-       <img id = "people-with-books" src="../assets/world-travel.jpeg"/>
+       <img id = "people-with-books" src="../assets/littePeople.jpeg"/>
       </div>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}

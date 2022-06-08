@@ -48,10 +48,11 @@ export default {
 
 <style scoped>
 .book-card {
-  border: solid 10px;
+  border: solid 5px;
   background-color: #86cacd;
   text-align: center;
   border-radius: 25px;
+ 
 }
 
 h2 {

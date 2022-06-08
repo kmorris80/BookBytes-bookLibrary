@@ -1,11 +1,9 @@
 <template>
     <form v-on:submit.prevent>
         <div class="field">
-          <div id="addTopic">
-            <img id="addTopicBanner" src="../assets/add-new-topic.png" alt="header for topic page">
-          </div>
+        
           <div id='input-div'>
-            <input class="form-control form-control-lg" type="text" placeholder="New Topic" v-model="forum.forumTopic"/>
+            <input class="form-control form-control-lg" type="text" placeholder="Add New Topic" v-model="forum.forumTopic"/>
              </div>
              <div id="action">
              <button id="save" class="btn btn-primary btn-lg" type="submit" v-on:click="saveTopic()">Save Topic</button>
@@ -22,9 +20,8 @@ export default {
     data(){
         return{
             forum:{
-                forumID: "",
-                userID:"",
-                forumTopic: ""
+                forumTopic: "",
+               
             }
         };
     },
@@ -33,7 +30,7 @@ export default {
             forumService
             .create(this.forum)
             .then((response)=>{
-                if(response.status === 201){
+                if(response.status === 200){
                     window.alert("Topic Created!")
                     this.$router.push("/forum-view");
                 }
