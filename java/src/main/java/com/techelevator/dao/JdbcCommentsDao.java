@@ -37,10 +37,10 @@ public class JdbcCommentsDao implements CommentsDao{
 
     @Override
     public Comments addComment(Comments comments) {
-        String sql = "INSERT INTO comments (forum_id, comment_by, comments, comment_date)" +
+        String sql = "INSERT INTO comments (comment_by, forum_id, comment_title, comments, comment_date)" +
                 "VALUES(?,?,?,?) RETURNING comment_id;";
         int commentId =
-                jdbcTemplate.queryForObject(sql, Integer.class, comments.getForumId(), comments.getCommentBy(), comments.getComments(), comments.getCommentDate());
+                jdbcTemplate.queryForObject(sql, Integer.class, comments.getCommentBy(), comments.getForumId(), comments.getCommentTitle(), comments.getComments(), comments.getCommentDate());
         comments.setCommentId(commentId);
         return comments;
 
@@ -79,8 +79,9 @@ public class JdbcCommentsDao implements CommentsDao{
 
         Comments comments = new Comments();
         comments.setCommentId(results.getInt("comment_id"));
-        comments.setForumId(results.getInt("forum_id"));
         comments.setCommentBy(results.getInt("comment_by"));
+        comments.setForumId(results.getInt("forum_id"));
+        comments.setComments(results.getString("comment_title"));
         comments.setComments(results.getString("comments"));
         if (results.getDate("comment_date") !=null ){
             comments.setCommentDate(results.getDate("comment_date").toLocalDate());

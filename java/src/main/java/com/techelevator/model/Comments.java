@@ -8,24 +8,27 @@ import java.time.LocalDate;
 public class Comments {
 
     private int commentId;
-    private int forumId;
     private int commentBy;
+    private int forumId;
+    private String commentTitle;
     private String comments;
     private LocalDate commentDate;
 
     public Comments() {}
 
-    public Comments(int forumId, int commentBy, String comments, LocalDate commentDate) {
-        this.forumId = forumId;
+    public Comments(int commentBy, int forumId, String commentTitle, String comments, LocalDate commentDate) {
         this.commentBy = commentBy;
+        this.forumId = forumId;
+        this.commentTitle = commentTitle;
         this.comments = comments;
         this.commentDate = commentDate;
     }
 
-    public Comments(int commentId, int forumId, int commentBy, String comments, LocalDate commentDate) {
+    public Comments(int commentId, int commentBy, int forumId, String commentTitle, String comments, LocalDate commentDate) {
         this.commentId = commentId;
-        this.forumId = forumId;
         this.commentBy = commentBy;
+        this.forumId = forumId;
+        this.commentTitle = commentTitle;
         this.comments = comments;
         this.commentDate = commentDate;
     }
@@ -38,6 +41,14 @@ public class Comments {
         this.commentId = commentId;
     }
 
+    public int getCommentBy() {
+        return commentBy;
+    }
+
+    public void setCommentBy(int commentBy) {
+        this.commentBy = commentBy;
+    }
+
     public int getForumId() {
         return forumId;
     }
@@ -46,12 +57,12 @@ public class Comments {
         this.forumId = forumId;
     }
 
-    public int getCommentBy() {
-        return commentBy;
+    public String getCommentTitle() {
+        return commentTitle;
     }
 
-    public void setCommentBy(int commentBy) {
-        this.commentBy = commentBy;
+    public void setCommentTitle(String commentTitle) {
+        this.commentTitle = commentTitle;
     }
 
     public String getComments() {
@@ -74,8 +85,9 @@ public class Comments {
     public String toString() {
         return "Comments{" +
                 "commentId=" + commentId +
-                ", forumId=" + forumId +
                 ", commentBy=" + commentBy +
+                ", forumId=" + forumId +
+                ", commentTitle='" + commentTitle + '\'' +
                 ", comments='" + comments + '\'' +
                 ", commentDate=" + commentDate +
                 '}';
