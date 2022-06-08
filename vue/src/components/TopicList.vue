@@ -1,28 +1,31 @@
 <template>
-<div class="topic-list">
+  <div class="topic-list">
     <table class="table table-hover">
-        <thead>
-         <tr>
-        <th>Topic</th>
-         <th>Delete</th>
-         </tr>
-         </thead>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
 
-         <tbody>
-             <tr class="table-primary" v-for="topic in topics" v-bind:key="topic.forumID">
-                 <td width="80%">
-                     <router-link
-                     v-bind:to="{name: 'Messages', params: { id: forum.id} }">
-                     {{forum.forumTopic}}</router-link>
-                 </td>
-            <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
-          </tr>
-                 
-
-         </tbody>
-    </table>    
-</div>
-
+      <tbody>
+        <tr
+          class="table-primary"
+          v-for="topic in topics"
+          v-bind:key="topic.forumID"
+        >
+          <td width="80%">
+            <router-link
+              v-bind:to="{ name: 'Messages', params: { id: forum.id } }"
+            >
+              {{ forum.forumTopic }}</router-link
+            >
+          </td>
+          <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 

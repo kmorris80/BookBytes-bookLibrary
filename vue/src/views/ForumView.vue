@@ -2,6 +2,7 @@
 <template>
   <div>
     <h1>Topic Message Board</h1>
+    <create-topic></create-topic>
     <topicList></topicList>
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import topicList from '../components/TopicList.vue'
 import forumService from '../services/ForumService.js'
+import createTopic from '../components/CreateTopic.vue'
 
 export default {
     name: 'forum',
     components:{
         topicList,
+        createTopic
     },
     data(){
     return{

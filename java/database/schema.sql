@@ -66,7 +66,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
  	forum_id int DEFAULT nextval('seq_forum_id'::regclass) NOT NULL,
  	user_id int NOT NULL,
  	forum_topic varChar(200) NOT NULL,
-	forum_date date NOT NULL, 
+	forum_date date,
  	CONSTRAINT PK_forum_id PRIMARY KEY (forum_id),
  	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
  );

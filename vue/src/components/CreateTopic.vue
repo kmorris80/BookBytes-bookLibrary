@@ -1,40 +1,38 @@
 <template>
-    <form v-on:submit.prevent>
-        <div class="field">
-            <label for="Title">Title</label>
-            <input type="text" v-model="forum.forumTopic"/>
-        </div>
-        <div class="actions">
-            <button type="submit" v-on:click="saveTopic()">Save Topic</button>
-        </div>
-    </form>
+  <form v-on:submit.prevent="saveTopic">
+    <div class="field">
+      <label for="Title">Create a forum topic:</label>
+      <input type="text" v-model="forum.forumTopic" placeholder="Title of forum topic" />
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-secondary">Create Topic</button>
+    </div>
+  </form>
 </template>
 
 <script>
-import forumService from '../services/ForumService';
+import forumService from "../services/ForumService";
 
 export default {
-    name: "create-topic",
-    data(){
-        return{
-            topic:{
-                id: Math.floor(Math.random() * (1000-100)+100),
-                title: ""
-            }
-        };
-    },
-    methods:{
-        saveTopic(){
-            forumService
-            .create(this.forumTopic)
-            .then((response)=>{
-                if(response.status === 201){
-                    this.$router.push("/ForumView");
-                }
-            })
-
+  name: "create-topic",
+  data() {
+    return {
+      forum: {
+        forumTopic: "",
+        forumDate: null,
+      },
+      
+    };
+  },
+  methods: {
+    saveTopic() {
+      forumService.create(this.forum).then((response) => {
+        if (response.status === 201) {
+          this.$router.push("/ForumView");
         }
-    }
+      });
+    },
+  },
 };
 </script>
 
