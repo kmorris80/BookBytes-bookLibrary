@@ -30,7 +30,7 @@
           required
           autofocus
         />
-     
+     <div></div>
       <label for="password" class="sr-only">Password</label>
        <input
          type="password"
@@ -112,13 +112,6 @@ grid-template-areas:
     height:auto;
     grid-area: picture;
   }
-
-.input {
-  padding-left: 500px;
-  padding-right: 500px;
-  grid-area: input;
-}
-
 #welcome-banner{
   font-size: 4em;
   padding: 15px;
@@ -132,13 +125,15 @@ grid-template-areas:
 
 label {
   font-size: 2rem;
+  padding-top: 20px;
 }
 
-input {
-  margin-bottom: 20px;
-  margin-top: 5px;
-  border: solid 2px;
-  font-size: 20px;
+.input {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-top: px;
+  padding-bottom: 30px;
 }
 
 #checkbox-text {

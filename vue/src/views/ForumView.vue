@@ -1,30 +1,39 @@
 //should include list function
 <template>
   <div>
-    <h1>Topic Message Board</h1>
+    <div id="heading">
+    <img src="../assets/Lets-get-talking.png" alt="Forum heading">
+    </div>
+  
     <topicList></topicList>
+    <create-topic></create-topic>
+    
+    
   </div>
 </template>
 
 <script>
 import topicList from '../components/TopicList.vue'
 import forumService from '../services/ForumService.js'
+import createTopic from '../components/CreateTopic.vue'
+
 
 export default {
     name: 'forum',
     components:{
         topicList,
+        createTopic
     },
     data(){
     return{
-        topics: [],
+        forums: [],
     };
         
 
     },
 createTopicList(){
     forumService.list().then((response) => {
-        this.topics=response.data;
+        this.forums=response.data;
     });
 },
     
@@ -61,7 +70,11 @@ createTopicList(){
 }
 header{
   text-align: center;
-  padding: 50px;
+  padding: 30px;
+}
+#heading{
+  text-align: center;
+  padding-bottom: 30px;
 }
 </style>
 

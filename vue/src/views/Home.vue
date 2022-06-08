@@ -50,11 +50,12 @@ export default {
 .home {
   background-image: url(../assets/library-background.jpeg);
   background-repeat: none;
-  height: 100vh;
+  min-height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+
 }
 header{
   text-align: center;

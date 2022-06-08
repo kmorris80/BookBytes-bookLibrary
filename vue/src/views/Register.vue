@@ -5,7 +5,7 @@
       <img id = "createAccount" src="../assets/Register.png"/>
       </header>
        <div>
-       <img id = "people-with-books" src="../assets/PeopleWithBooks.jpeg"/>
+       <img id = "people-with-books" src="../assets/world-travel.jpeg"/>
       </div>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -40,7 +40,7 @@
         />
       </div>
       <div>
-        <label for="checkbox"  id="checkbox-text">I am a System Administrator:</label>
+        <label for="checkbox"  id="checkbox-text">I am a System Administrator  </label>
         <input
           type="checkbox"
           class="form-check-input"
@@ -112,7 +112,6 @@ export default {
 input {
   margin-bottom: 20px;
   margin-top: 5px;
-  border: solid 2px;
   font-size: 20px;
 }
 label {
@@ -129,8 +128,11 @@ label {
 }
 
 .input {
-  padding-left: 500px;
-  padding-right: 500px;
+   display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-top: px;
+  padding-bottom: 10px;
 }
 #create{
   padding-top: 30px;
@@ -138,12 +140,13 @@ label {
 }
 #createAccount{
   text-align: center;
-  padding: 50px;
+  padding-top: 50px;
   max-width: 2000px;
 }
-
- img{
-    max-width: 60%;
+  #people-with-books{
+    padding-top:30px;
+    padding-bottom:40px;
+     max-width: 40%;
     height:auto;
   }
 </style>

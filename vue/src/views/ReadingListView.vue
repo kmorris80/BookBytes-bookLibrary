@@ -26,7 +26,7 @@ export default {
  background-image: url(../assets/readingNook2.png);
   background-attachment: fixed;
   background-repeat: none;
-  height: 100vh;
+  min-height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -10,6 +10,7 @@ import ReadingListView from '../views/ReadingListView.vue'
 import ForumDetailView from '../views/ForumDetailView.vue'
 import CreateMessage from '../components/CreateMessage.vue'
 import ForumView from '../views/ForumView.vue'
+import CreateTopicView from '../views/CreateTopicView.vue'
 Vue.use(Router)
 
 /**
@@ -91,13 +92,23 @@ const router = new Router({
       }
     },
     {
-      path: '/forumView',
+      path: '/forum-view',
       name: "ForumView",
       component: ForumView,
       meta:{
         requiresAuth: true
       }
+    },
+    {
+      path: '/create-topic',
+      name: "CreateTopic",
+      component: CreateTopicView,
+      meta:{
+        requiresAuth: true
+      }
+
     }
+
   ]
     })
   

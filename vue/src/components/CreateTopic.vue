@@ -1,11 +1,15 @@
 <template>
     <form v-on:submit.prevent>
         <div class="field">
-            <label for="Title">Title</label>
-            <input type="text" v-model="forum.forumTopic"/>
-        </div>
-        <div class="actions">
-            <button type="submit" v-on:click="saveTopic()">Save Topic</button>
+          <div id="addTopic">
+            <img id="addTopicBanner" src="../assets/add-new-topic.png" alt="header for topic page">
+          </div>
+          <div id='input-div'>
+            <input class="form-control form-control-lg" type="text" placeholder="New Topic" v-model="forum.forumTopic"/>
+             </div>
+             <div id="action">
+             <button id="save" class="btn btn-primary btn-lg" type="submit" v-on:click="saveTopic()">Save Topic</button>
+            </div>
         </div>
     </form>
 </template>
@@ -17,25 +21,27 @@ export default {
     name: "create-topic",
     data(){
         return{
-            topic:{
-                id: Math.floor(Math.random() * (1000-100)+100),
-                title: ""
+            forum:{
+                forumID: "",
+                userID:"",
+                forumTopic: ""
             }
         };
     },
     methods:{
         saveTopic(){
             forumService
-            .create(this.forumTopic)
+            .create(this.forum)
             .then((response)=>{
                 if(response.status === 201){
-                    this.$router.push("/ForumView");
+                    window.alert("Topic Created!")
+                    this.$router.push("/forum-view");
                 }
             })
-
         }
     }
-};
+
+        };
 </script>
 
 <style>
@@ -67,4 +73,29 @@ form * {
   text-align: right;
   padding: 10px 0;
 }
+#addTopic{
+  text-align: center;
+}
+#addTopicBanner{
+  max-width: 25%;
+}
+input{
+  max-width: 600px;
+  outline: solid 2px #f3969a;
+}
+#input-div{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#action{
+  text-align: center;
+  
+}
+img {
+  padding-top: 100px;
+}
+
 </style>
