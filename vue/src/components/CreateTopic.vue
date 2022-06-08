@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import forumService from '../services/ForumService';
+import forumService from "../services/ForumService";
 
 export default {
     name: "create-topic",

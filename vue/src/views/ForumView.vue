@@ -17,7 +17,6 @@ import topicList from '../components/TopicList.vue'
 import forumService from '../services/ForumService.js'
 import createTopic from '../components/CreateTopic.vue'
 
-
 export default {
     name: 'forum',
     components:{
