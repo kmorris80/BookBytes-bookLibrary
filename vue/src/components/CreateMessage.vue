@@ -7,7 +7,7 @@
           type="text"
           name="title"
           placeholder="Title of message"
-          v-model="message.title"
+          v-model="message.commentTitle"
           required
         />
       </div>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       message: {
-        title: "",
+        commentTitle: "",
         comments: "",
       },
     };
