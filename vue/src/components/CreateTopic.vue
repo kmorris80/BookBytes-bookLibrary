@@ -1,7 +1,5 @@
 <template>
     <form v-on:submit.prevent>
-      {{forum}}
-      {{$store.state.username}}
         <div class="field">
         
           <div id='input-div'>
