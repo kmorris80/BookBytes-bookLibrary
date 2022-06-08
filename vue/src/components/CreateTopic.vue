@@ -1,11 +1,13 @@
 <template>
     <form v-on:submit.prevent>
+      {{forum}}
+      {{$store.state.username}}
         <div class="field">
           <div id="addTopic">
             <img id="addTopicBanner" src="../assets/add-new-topic.png" alt="header for topic page">
           </div>
           <div id='input-div'>
-            <input class="form-control form-control-lg" type="text" placeholder="New Topic" v-model="forum.forumTopic"/>
+            <input class="form-control form-control-lg" type="text" placeholder="New Topic" v-model="forum.topic"/>
              </div>
              <div id="action">
              <button id="save" class="btn btn-primary btn-lg" type="submit" v-on:click="saveTopic()">Save Topic</button>
@@ -22,9 +24,8 @@ export default {
     data(){
         return{
             forum:{
-                forumID: "",
-                userID:"",
-                forumTopic: ""
+                username: this.$store.state.username,
+                topic: "",
             }
         };
     },

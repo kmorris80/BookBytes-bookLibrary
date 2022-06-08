@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,10 +50,10 @@ public class JdbcForumDao implements ForumDao {
 
     @Override
     public Forum addForum(Forum forum) {
-            String sql = "INSERT INTO forum (user_id, forum_topic, forum_date) " +
-                    "VALUES(?,?,?) RETURNING forum_id;";
+            String sql = "INSERT INTO forum (user_id, forum_topic) " +
+                    "VALUES(?,?) RETURNING forum_id;";
             int forumId =
-                    jdbcTemplate.queryForObject(sql, Integer.class, forum.getUserId(), forum.getForumTopic(), forum.getForumDate());
+                    jdbcTemplate.queryForObject(sql, Integer.class, forum.getUserId(), forum.getForumTopic());
             forum.setForumId(forumId);
 
         return forum;
@@ -64,8 +66,7 @@ public class JdbcForumDao implements ForumDao {
         forum.setForumId(results.getInt("forum_id"));
         forum.setUserId(results.getInt("user_id"));
         forum.setForumTopic(results.getString("forum_topic"));
-        if (results.getDate("forum_date") != null) {
-            forum.setForumDate(results.getDate("forum_date").toLocalDate());}
+//        forum.setForumDate(LocalDate.parse(results.getString("forum_date")));
 
         return forum;
     }

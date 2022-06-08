@@ -1,5 +1,12 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 
 public class Forum {
@@ -7,23 +14,23 @@ public class Forum {
         private int forumId;
         private int userId;
         private String forumTopic;
-        private LocalDate forumDate;
+//        private LocalDate forumDate;
 
 
 
         public Forum () {}
 
-        public Forum(int userId,String forumTopic, LocalDate forumDate) {
+        public Forum(int userId,String forumTopic) {
         this.userId = userId;
         this.forumTopic = forumTopic;
-        this.forumDate = forumDate;
+//        this.forumDate = forumDate;
     }
 
-    public Forum(int forumId, int userId, String forumTopic, LocalDate forumDate) {
+    public Forum(int forumId, int userId, String forumTopic) {
         this.forumId = forumId;
         this.userId = userId;
         this.forumTopic = forumTopic;
-        this.forumDate = forumDate;
+//        this.forumDate = forumDate;
     }
 
     public int getForumId() {
@@ -48,13 +55,13 @@ public class Forum {
     public void setForumTopic(String forumTopic) {
         this.forumTopic = forumTopic;
     }
-    public LocalDate getForumDate() {
-        return forumDate;
-    }
+//    public LocalDate getForumDate() {
+//        return forumDate;
+//    }
 
-    public void setForumDate(LocalDate forumDate) {
-        this.forumDate = forumDate;
-    }
+//    public void setForumDate(LocalDate forumDate) {
+//        this.forumDate = forumDate;
+//    }
 
 
 
@@ -63,8 +70,8 @@ public class Forum {
         return "Forum{" +
                 "forumId=" + forumId +
                 ", userId=" + userId +
-                ", forumTopic='" + forumTopic + '\'' +
-                ", forumDate=" + forumDate +
+                ", forumTopic='" + forumTopic +
+//                ", forumDate=" + forumDate +
                 '}';
     }
 }
