@@ -42,7 +42,7 @@
        />
       </div>
       <div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" @click="playSound()" type="submit" id = "submit">Sign in</button>
      </div>
     <router-link :to="{ name: 'register' }">Need an account?</router-link>
   </form>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+var myTrack=new Audio('../assets/bookPage.mp3');
 import authService from "../services/AuthService";
 
 export default {
@@ -62,7 +63,10 @@ export default {
         username: "",
         password: "",
       },
-      invalidCredentials: false
+   
+      invalidCredentials: false,
+      
+  
     };
   },
   methods: {
@@ -89,6 +93,9 @@ export default {
             this.invalidCredentials = true;
           }
         });
+    },
+    playSound(){
+      myTrack.play()
     }
  
     }
@@ -111,6 +118,7 @@ grid-template-areas:
     max-width: 50%;
     height:auto;
     grid-area: picture;
+    padding-top:10px;
   }
 #welcome-banner{
   font-size: 4em;

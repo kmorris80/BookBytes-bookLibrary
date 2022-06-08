@@ -1,12 +1,12 @@
 //should include list function
-<template>
-  <div>
+<template >
+  <div class="home">
     <div id="heading">
     <img src="../assets/Lets-get-talking.png" alt="Forum heading">
     </div>
-  
-    <topicList></topicList>
     <create-topic></create-topic>
+    <topicList></topicList>
+    
     
     
   </div>
@@ -14,7 +14,6 @@
 
 <script>
 import topicList from '../components/TopicList.vue'
-import forumService from '../services/ForumService.js'
 import createTopic from '../components/CreateTopic.vue'
 
 export default {
@@ -23,19 +22,8 @@ export default {
         topicList,
         createTopic
     },
-    data(){
-    return{
-        forums: [],
-    };
-        
+   
 
-    },
-createTopicList(){
-    forumService.list().then((response) => {
-        this.forums=response.data;
-    });
-},
-    
     
 };
 </script>
@@ -59,7 +47,7 @@ createTopicList(){
 }
 
 .home {
-  background-image: url(../assets/library-background.jpeg);
+  background-image: url(../assets/bookWithTree.png);
   background-repeat: none;
   height: 100vh;
   background-position: center;
@@ -74,6 +62,7 @@ header{
 #heading{
   text-align: center;
   padding-bottom: 30px;
+  padding-left: 80px;
 }
 </style>
 

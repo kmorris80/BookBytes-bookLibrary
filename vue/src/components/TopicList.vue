@@ -4,25 +4,22 @@
       <thead>
         <tr>
           <th>Topic</th>
-          <th>Delete</th>
+          <!-- <th>Delete</th> -->
         </tr>
       </thead>
 
       <tbody>
         <tr
-          class="table-primary"
-          v-for="topic in topics"
-          v-bind:key="topic.forumID"
-        >
+          class="table-primary" v-for="topic in topics" v-bind:key="topic.id">
+        </tr>
           <td width="80%">
             <router-link
-              v-bind:to="{ name: 'Messages', params: { id: forum.id } }"
+              v-bind:to="{ name: 'forum-detail', params: { id: topic.id } }"
             >
-              {{ forum.forumTopic }}</router-link
+              {{ topic.forumTopic }}</router-link
             >
           </td>
-          <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
-        </tr>
+         
       </tbody>
     </table>
   </div>
@@ -30,23 +27,24 @@
 
 
 <script>
+import forumService from '../services/ForumService.js'
+
+
 export default {
   components: {},
   name: "topic-list",
-  props: {
-    topics: Array,
-    //getting the array of books from "Home View"
-  },
-  data() {
-    return {
-      topic: {
-        forumID: "",
-        userID: "",
-        forumTopic: "",
-        forumDate: "",
-      },
+   data(){
+    return{
+        topics: [],
     };
-  },
+        
+
+    },
+createTopicList(){
+    forumService.list().then((response) => {
+        this.topics=response.data;
+    });
+},
 };
 </script>
 
@@ -83,5 +81,8 @@ tbody tr:nth-child(even) {
 }
 .topic-list a:hover {
   text-decoration: underline;
+}
+th{
+  font-size: x-large; 
 }
 </style>
