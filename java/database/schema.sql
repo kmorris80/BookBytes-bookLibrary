@@ -45,25 +45,21 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
  CREATE TABLE forum (
  	forum_id Serial PRIMARY KEY,
- 	user_id int NOT NULL,
- 	forum_topic varChar(200) NOT NULL,
- 	FOREIGN KEY (user_id) REFERENCES users (user_id)
+	user_id int REFERENCES users (user_id),
+ 	forum_topic varChar(200) NOT NULL
  );
 
  CREATE TABLE comments (
  	comment_id serial PRIMARY KEY,
-	forum_id int NOT NULL,
+	forum_id int REFERENCES forum (forum_id),
 	comment_title varChar(100) NOT NULL, 
- 	comments varChar(250) NOT NULL,
-	FOREIGN KEY (forum_id) REFERENCES forum (forum_id)
+ 	comments varChar(250) NOT NULL
  );
 
    CREATE TABLE user_book (
- 	book_id int NOT NULL,
- 	user_id int NOT NULL,
- 	PRIMARY KEY (book_id, user_id),
-	FOREIGN KEY (book_id) REFERENCES book (book_id),
- 	FOREIGN KEY (user_id) REFERENCES users (user_id)
+ 	book_id int REFERENCES book (book_id),
+ 	user_id int REFERENCES users (user_id),
+ 	PRIMARY KEY (book_id, user_id)
  );
  
  COMMIT TRANSACTION;
