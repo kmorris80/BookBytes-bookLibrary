@@ -85,7 +85,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 	forum_id int NOT NULL,
 	comment_title varChar(100) NOT NULL, 
  	comments varChar(250) NOT NULL,
-	comment_date date NOT NULL, 
+	comment_date date, 
  	CONSTRAINT PK_comment_id PRIMARY KEY (comment_id),
  	CONSTRAINT FK_comment_by FOREIGN KEY (comment_by) REFERENCES users (user_id),
 	CONSTRAINT FK_forum_id FOREIGN KEY (forum_id) REFERENCES forum (forum_id)
