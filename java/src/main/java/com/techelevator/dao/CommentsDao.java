@@ -13,7 +13,7 @@ public interface CommentsDao {
 
     Comments addComment (Comments comments);
 
-    List<Comments> findAllCommentsByUserId (int userId);
+//    List<Comments> findAllCommentsByUserId (int userId);
 
     List<Comments> findAllCommentsByForumId(int forumId);
 }

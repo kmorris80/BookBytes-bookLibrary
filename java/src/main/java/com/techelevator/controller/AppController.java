@@ -6,9 +6,11 @@ import com.techelevator.dao.ForumDao;
 import com.techelevator.model.Book;
 import com.techelevator.model.Comments;
 import com.techelevator.model.Forum;
+import com.techelevator.model.ForumDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -82,10 +84,10 @@ public class AppController {
         return commentsDao.getAllComments();
     }
 
-    @RequestMapping(path = "/userComment/{id}", method = RequestMethod.GET)
-    public List<Comments> getCommentsByUser(@PathVariable int userId) {
-        return commentsDao.findAllCommentsByUserId(userId);
-    }
+//    @RequestMapping(path = "/userComment/{id}", method = RequestMethod.GET)
+//    public List<Comments> getCommentsByUser(@PathVariable int userId) {
+//        return commentsDao.findAllCommentsByUserId(userId);
+//    }
     @RequestMapping(path = "/forumComment/{id}", method = RequestMethod.GET)
     public List<Comments> getCommentsByForum(@PathVariable int forumId) {
         return commentsDao.findAllCommentsByForumId(forumId);
@@ -111,6 +113,29 @@ public class AppController {
     @RequestMapping(path = "/addForum", method = RequestMethod.POST)
     public Forum addNewForum(@RequestBody Forum forum) {
         //System.out.println("DEBUG, what the object looks like:");
+        System.out.println(forum);
         return forumDao.addForum(forum);
     }
+
+
+//    @RequestMapping(path = "/addForum", method = RequestMethod.POST)
+//    public Forum addNewForum(@RequestBody ForumDTO forumDTO) {
+//        //System.out.println("DEBUG, what the object looks like:");
+////        System.out.println(forum);
+////        return forumDao.addForum(forum);
+//        System.out.println("hello?");
+//        System.out.println(forumDTO.getTopic() + " " + forumDTO.getUsername());
+//
+//        // Build a forum object
+//        // 1. find out what the user id is, we know what the username is.
+//
+//        // 2. get the current date
+//        LocalDate currentDate = LocalDate.now();
+//
+//        // 3. Forum ID: ?
+//
+//        // 4. Call your dao method
+//        //        return forumDao.addForum(forum);
+//
+//        return null;
 }

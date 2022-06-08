@@ -8,29 +8,26 @@ import java.time.LocalDate;
 public class Comments {
 
     private int commentId;
-    private int commentBy;
     private int forumId;
     private String commentTitle;
     private String comments;
-    private LocalDate commentDate;
+//    private LocalDate commentDate;
 
     public Comments() {}
 
-    public Comments(int commentBy, int forumId, String commentTitle, String comments, LocalDate commentDate) {
-        this.commentBy = commentBy;
+    public Comments(int forumId, String commentTitle, String comments) {
         this.forumId = forumId;
         this.commentTitle = commentTitle;
         this.comments = comments;
-        this.commentDate = commentDate;
+//        this.commentDate = commentDate;
     }
 
-    public Comments(int commentId, int commentBy, int forumId, String commentTitle, String comments, LocalDate commentDate) {
+    public Comments(int commentId, int forumId, String commentTitle, String comments) {
         this.commentId = commentId;
-        this.commentBy = commentBy;
         this.forumId = forumId;
         this.commentTitle = commentTitle;
         this.comments = comments;
-        this.commentDate = commentDate;
+//        this.commentDate = commentDate;
     }
 
     public int getCommentId() {
@@ -39,14 +36,6 @@ public class Comments {
 
     public void setCommentId(int commentId) {
         this.commentId = commentId;
-    }
-
-    public int getCommentBy() {
-        return commentBy;
-    }
-
-    public void setCommentBy(int commentBy) {
-        this.commentBy = commentBy;
     }
 
     public int getForumId() {
@@ -73,23 +62,22 @@ public class Comments {
         this.comments = comments;
     }
 
-    public LocalDate getCommentDate() {
-        return commentDate;
-    }
-
-    public void setCommentDate(LocalDate commentDate) {
-        this.commentDate = commentDate;
-    }
+//    public LocalDate getCommentDate() {
+//        return commentDate;
+//    }
+//
+//    public void setCommentDate(LocalDate commentDate) {
+//        this.commentDate = commentDate;
+//    }
 
     @Override
     public String toString() {
         return "Comments{" +
                 "commentId=" + commentId +
-                ", commentBy=" + commentBy +
                 ", forumId=" + forumId +
                 ", commentTitle='" + commentTitle + '\'' +
                 ", comments='" + comments + '\'' +
-                ", commentDate=" + commentDate +
+//                ", commentDate=" + commentDate +
                 '}';
     }
 }
