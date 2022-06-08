@@ -3,7 +3,6 @@ BEGIN TRANSACTION;
  DROP TABLE IF EXISTS book CASCADE;
  DROP TABLE IF EXISTS comments CASCADE;
  DROP TABLE IF EXISTS user_book CASCADE;
- DROP TABLE IF EXISTS user_comments;
  DROP TABLE IF EXISTS forum CASCADE;
  DROP SEQUENCE IF EXISTS seq_user_id CASCADE;
 
@@ -45,7 +44,6 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
  CREATE TABLE forum (
  	forum_id Serial PRIMARY KEY,
-	user_id int REFERENCES users (user_id),
  	forum_topic varChar(200) NOT NULL
  );
 

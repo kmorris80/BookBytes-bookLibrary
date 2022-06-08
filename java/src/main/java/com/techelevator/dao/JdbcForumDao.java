@@ -50,10 +50,10 @@ public class JdbcForumDao implements ForumDao {
 
     @Override
     public Forum addForum(Forum forum) {
-            String sql = "INSERT INTO forum (user_id, forum_topic) " +
-                    "VALUES(?,?) RETURNING forum_id;";
+            String sql = "INSERT INTO forum (forum_topic) " +
+                    "VALUES(?) RETURNING forum_id;";
             int forumId =
-                    jdbcTemplate.queryForObject(sql, Integer.class, forum.getUserId(), forum.getForumTopic());
+                    jdbcTemplate.queryForObject(sql, Integer.class, forum.getForumTopic());
             forum.setForumId(forumId);
 
         return forum;
@@ -64,7 +64,7 @@ public class JdbcForumDao implements ForumDao {
 
         Forum forum = new Forum();
         forum.setForumId(results.getInt("forum_id"));
-        forum.setUserId(results.getInt("user_id"));
+//        forum.setUserId(results.getInt("user_id"));
         forum.setForumTopic(results.getString("forum_topic"));
 //        forum.setForumDate(LocalDate.parse(results.getString("forum_date")));
 
