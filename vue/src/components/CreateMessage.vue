@@ -1,6 +1,8 @@
 <template>
   <div id="new-message">
-    <h1>Add New Message</h1>
+
+    <img src="../assets/addMessage.png" alt="Forum heading">
+    
     <form id="input" v-on:submit.prevent="saveMessage">
       <div>
         <input
@@ -58,7 +60,9 @@ h1 {
 }
 
 #input {
-  padding-left: 460px;
+  padding-left: 22%;
+  font-size: 30px;
+ 
 }
 
 div {
@@ -66,7 +70,21 @@ div {
 }
 
 textarea {
-  width: 370px;
-  height: 180px;
+ min-width: 500px;
+ min-height: 400px;
+ font-size: 30px;
 }
+#new-message{
+  background-image: url(../assets/messageInBottle.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display:grid;
+  justify-content: right;
+}
+
 </style>

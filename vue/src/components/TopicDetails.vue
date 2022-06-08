@@ -27,5 +27,14 @@ h1 {
 h3 {
     padding-top: 20px;
 }
+#topic-details {
+  background-image: url(../assets/paper.jpeg);
+  background-repeat: none;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 </style>
