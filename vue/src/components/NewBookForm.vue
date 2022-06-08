@@ -90,7 +90,6 @@ export default {
         bookService
         .create(this.book)
         .then((response)=>{
-          console.log(response.status)
           if(response.status === 200){
             window.alert("Book Created!"); 
           }

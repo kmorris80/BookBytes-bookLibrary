@@ -6,11 +6,15 @@ const http = axios.create({
   });
 
   export default{
+
 list() {
     return http.get('/allTopics')
 },
+
 create(forumTopic){
-    return http.post('/topics/', forumTopic)
-}
+    return http.post('/addForum', forumTopic)
+},
+
+
 
 }
