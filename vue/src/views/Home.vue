@@ -23,7 +23,7 @@ export default {
   },
   created() {
     bookService.list().then((response) => {
-      this.books = response.data;
+      this.books = response.data;  //getting a list of all the books in the database
     });
   },
 };

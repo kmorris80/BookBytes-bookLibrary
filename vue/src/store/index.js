@@ -37,6 +37,7 @@ export default new Vuex.Store({
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       state.username = '';
+      state.addedBooks = [];
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};

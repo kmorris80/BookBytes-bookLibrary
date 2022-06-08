@@ -1,7 +1,7 @@
 // <template> 
 <!-- //wrap in a v-if $store.state.user.permission - allow show page, if not show "you don't have access" -->
   <div class="text-center">
-    <form class="new-book-form" v-on:submit="saveBook">
+    <form class="new-book-form" v-on:submit.prevent="saveBook">
       <header>
         <img id = "NewBookForm" src="../assets/NewBookForm.png"/>
         </header>

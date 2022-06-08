@@ -51,7 +51,7 @@
       <book-cards
         v-for="book in filteredBooks"
         :key="book.id"
-        :book="book"
+        :book="book"  
         :enableAdd="true"
       ></book-cards>
     </div>
@@ -65,7 +65,8 @@ export default {
   components: { BookCards },
   name: "book-list",
   props: {
-    books: Array,
+    books: Array,  
+    //getting the array of books from "Home View"
   },
   data() {
     return {
