@@ -21,7 +21,9 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     addedBooks: [],
-    username: ''
+    username: '',
+    messageTitle: "",
+    messageContent: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -47,7 +49,14 @@ export default new Vuex.Store({
     },
     SET_USERNAME(state, username) {
       state.username = username;
-    }
+    },
+    SET_MESSAGE_TITLE(state, messageTitle) {
+      state.messageTitle = messageTitle;
+    },
+    SET_MESSAGE_CONTENT(state, messageContent) {
+      state.messageContent = messageContent;
+    },
+
   },
 })
 //for information that is used across multiple pages

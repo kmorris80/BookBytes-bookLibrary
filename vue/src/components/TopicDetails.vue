@@ -2,15 +2,16 @@
     <div id="topic-details" >
         <h1>Forum Topic Title</h1>
         <router-link :to="{ name: 'add-message'}">Add New Message</router-link>
-        <!-- Create a div looping through forum comments by forum id to get all forum specific messages-->
-        <h3>Message title</h3>
-        <p>Body of Message</p>
+        
+        <h3>{{ this.$store.state.messageTitle }}</h3>
+        <p>{{ this.$store.state.messageContent }}</p>
     </div>
 </template>
 
 <script>
+
 export default {
-    
+    name: 'topic-details'
 }
 </script>
 

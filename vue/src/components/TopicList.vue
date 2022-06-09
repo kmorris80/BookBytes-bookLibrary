@@ -9,17 +9,15 @@
       </thead>
 
       <tbody>
-        <tr
-          class="table-primary" v-for="topic in topics" v-bind:key="topic.id">
-        </tr>
+        <tr class="table-primary" v-for="topic in this.topics" v-bind:key="topic.id">
           <td width="80%">
             <router-link
-              v-bind:to="{ name: 'forum-detail', params: { id: topic.id } }"
+              v-bind:to="{ name: 'forum-detail', params: {id: topic.forumId} }"
             >
               {{ topic.forumTopic }}</router-link
             >
           </td>
-         
+         </tr>
       </tbody>
     </table>
   </div>
@@ -40,10 +38,10 @@ export default {
         
 
     },
-createTopicList(){
-    forumService.list().then((response) => {
-        this.topics=response.data;
-    });
+  created(){
+      forumService.list().then((response) => {
+          this.topics = response.data;
+      });
 },
 };
 </script>

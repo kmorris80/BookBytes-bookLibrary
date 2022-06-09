@@ -3,13 +3,13 @@
 
     <img src="../assets/addMessage.png" alt="Forum heading">
     
-    <form id="input" v-on:submit.prevent="saveMessage">
+    <form id="input" v-on:submit.prevent="addTitle(); addContent();">
       <div>
         <input
           type="text"
           name="title"
           placeholder="Title of message"
-          v-model="message.commentTitle"
+          v-model="commentTitle"
           required
         />
       </div>
@@ -17,7 +17,7 @@
         <textarea
           name="message"
           placeholder="Message content"
-          v-model="message.comments"
+          v-model="comments"
           required
         />
       </div>
@@ -29,25 +29,31 @@
 </template>
 
 <script>
-import messageService from "../services/MessageService.js";
+// import messageService from "../services/MessageService.js";
 
 export default {
-  name: "createMessage",
+  name: "create-message",
   data() {
     return {
-      message: {
         commentTitle: "",
         comments: "",
-      },
     };
   },
   methods: {
-    saveMessage() {
-      messageService.create(this.message).then((response) => {
-        if (response.status === 200) {
-          window.alert("Message Posted!");
-        }
-      });
+    // saveMessage() {
+    //   messageService.create(this.message).then((response) => {
+    //     if (response.status === 200) {
+    //       window.alert("Message Posted!");
+    //     }
+    //   });
+    // },
+    addTitle() {
+          this.$store.commit('SET_MESSAGE_TITLE', this.commentTitle)
+      },
+    addContent() {
+        this.$store.commit('SET_MESSAGE_CONTENT', this.comments)
+        this.$router.push("/forum-detail")
+        window.alert("Successfully posted!")
     },
   },
 };
