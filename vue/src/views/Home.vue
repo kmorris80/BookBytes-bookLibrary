@@ -4,17 +4,22 @@
      <img id = "letsGetReading" src="../assets/LibraryProject.png"/>
     </header>
     <search-bar :books="books"></search-bar>
+    <weekly-poll></weekly-poll>
+   
   </div>
+
 </template>
 
 <script>
 import bookService from "../services/BookService";
 import searchBar from "../components/SearchBar.vue";
+import weeklyPoll from "../components/weeklyPoll.vue"
 
 export default {
   name: "home",
   components: {
     searchBar,
+    weeklyPoll
   },
   data() {
     return {
