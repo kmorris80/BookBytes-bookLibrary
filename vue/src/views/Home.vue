@@ -4,7 +4,7 @@
      <img id = "letsGetReading" src="../assets/LibraryProject.png"/>
     </header>
     <search-bar :books="books"></search-bar>
-    <weekly-poll></weekly-poll>
+   
    
   </div>
 
@@ -13,13 +13,13 @@
 <script>
 import bookService from "../services/BookService";
 import searchBar from "../components/SearchBar.vue";
-import weeklyPoll from "../components/weeklyPoll.vue"
+
 
 export default {
   name: "home",
   components: {
     searchBar,
-    weeklyPoll
+   
   },
   data() {
     return {
@@ -65,5 +65,9 @@ export default {
 header{
   text-align: center;
   padding: 50px;
+}
+#letsGetReading {
+  padding: 10px;
+  width: 1500px;
 }
 </style>

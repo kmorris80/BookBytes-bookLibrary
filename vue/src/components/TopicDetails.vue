@@ -1,11 +1,15 @@
 <template>
-    <div id="topic-details" >
+    <div id="topic-details">
       <h1>{{ this.$store.state.topicTitle }}</h1>
+       <button type="button" class="btn btn-secondary btn-lg">
       <router-link :to="{ name: 'add-message'}">Add New Message</router-link>
-      <div id="message-bubble" v-for="message in this.$store.state.messages" :key="message.id">
-        <h3>{{ message.title }}</h3>
-        <p>{{ message.content }}</p>
+      </button>
+      <div id="card" class="card bg-light mb-3" style="max-width: 40rem;" v-for="message in this.$store.state.messages" :key="message.id">
+        <h3 class="card-title">{{ message.title }}</h3>
+        <div class="card-body">
+        <h4 class="card-text">{{ message.content }}</h4>
       </div>
+    </div>
     </div>
 </template>
 
@@ -20,6 +24,15 @@ export default {
 
 #topic-details {
   text-align: center;
+  background-image: url(../assets/quill.jpeg);
+  background-attachment: fixed;
+  background-repeat: none;
+  min-height: 150vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+ 
 }
 
 h1 {
@@ -29,56 +42,13 @@ h1 {
 h3 {
     padding-top: 20px;
 }
-#topic-details {
-  background-image: url(../assets/paper.jpeg);
-  background-repeat: none;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+a{
+    color: white;
 }
-.topic-details .bubble {
-  box-sizing: border-box;
-  width: auto;
-  position: relative;
-  clear: both;
-
-  background: #95c2fd;
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.15, #bee2ff),
-    color-stop(1, #95c2fd)
-  );
-  background-image: -webkit-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
-  background-image: -moz-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
-  background-image: -ms-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
-  background-image: -o-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
-  background-image: linear-gradient(to top, #c7ecd3 15%, #78c2ad 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#78c2ad', endColorstr='#c7ecd3');
-
-  border: solid 1px rgba(0, 0, 0, 0.5);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-
-  -webkit-box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  padding: 6px 20px;
-  color: #000;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-  word-wrap: break-word;
+#card{
+margin: 0 auto;
+margin-top: 20px;
 }
 
-.addMessage {
-  display: block;
-  padding: 0 0 10px 10px;
-}
+
 </style>

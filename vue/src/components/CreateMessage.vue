@@ -1,7 +1,7 @@
 <template>
   <div id="new-message">
 
-    <img src="../assets/addMessage.png" alt="Forum heading">
+    <img src="../assets/addMessage.png" alt="Forum heading"/>
     
     <form id="input" v-on:submit.prevent="saveMessage()">
       <div>
@@ -92,6 +92,12 @@ textarea {
 
   display:grid;
   justify-content: right;
+}
+img{
+  padding-top: 20px;
+  padding-left: 50px;
+
+
 }
 
 </style>
