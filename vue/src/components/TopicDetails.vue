@@ -1,10 +1,11 @@
 <template>
     <div id="topic-details" >
-        <h1>Forum Topic Title</h1>
-        <router-link :to="{ name: 'add-message'}">Add New Message</router-link>
-        
-        <h3>{{ this.$store.state.messageTitle }}</h3>
-        <p>{{ this.$store.state.messageContent }}</p>
+      <h1>{{ this.$store.state.topicTitle }}</h1>
+      <router-link :to="{ name: 'add-message'}">Add New Message</router-link>
+      <div id="message-bubble" v-for="message in this.$store.state.messages" :key="message.id">
+        <h3>{{ message.title }}</h3>
+        <p>{{ message.content }}</p>
+      </div>
     </div>
 </template>
 

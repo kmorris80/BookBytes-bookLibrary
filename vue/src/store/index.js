@@ -22,6 +22,8 @@ export default new Vuex.Store({
     user: currentUser || {},
     addedBooks: [],
     username: '',
+    messages: [],
+    topicTitle: '',
     messageTitle: "",
     messageContent: ""
   },
@@ -56,6 +58,12 @@ export default new Vuex.Store({
     SET_MESSAGE_CONTENT(state, messageContent) {
       state.messageContent = messageContent;
     },
+    SAVE_MESSAGE(state, message) {
+      state.messages.push(message);
+    },
+    SET_TOPIC_TITLE(state, topicTitle){
+      state.topicTitle = topicTitle;
+    }
 
   },
 })
