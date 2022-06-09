@@ -3,13 +3,13 @@
 
     <img src="../assets/addMessage.png" alt="Forum heading">
     
-    <form id="input" v-on:submit.prevent="addTitle(); addContent();">
+    <form id="input" v-on:submit.prevent="saveMessage()">
       <div>
         <input
           type="text"
           name="title"
           placeholder="Title of message"
-          v-model="commentTitle"
+          v-model="message.title"
           required
         />
       </div>
@@ -17,7 +17,7 @@
         <textarea
           name="message"
           placeholder="Message content"
-          v-model="comments"
+          v-model="message.content"
           required
         />
       </div>
@@ -35,8 +35,10 @@ export default {
   name: "create-message",
   data() {
     return {
-        commentTitle: "",
-        comments: "",
+      message: {
+        title: "",
+        content: "",
+      }
     };
   },
   methods: {
@@ -47,14 +49,13 @@ export default {
     //     }
     //   });
     // },
-    addTitle() {
-          this.$store.commit('SET_MESSAGE_TITLE', this.commentTitle)
-      },
-    addContent() {
-        this.$store.commit('SET_MESSAGE_CONTENT', this.comments)
-        this.$router.push("/forum-detail")
-        window.alert("Successfully posted!")
-    },
+    saveMessage() {
+      let addedMessage = Object.assign(this.message);
+      this.$store.commit('SAVE_MESSAGE', addedMessage)
+      this.$router.push('/forum-detail')
+      window.alert("Successfully added!")
+
+    }
   },
 };
 </script>

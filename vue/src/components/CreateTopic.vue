@@ -1,5 +1,5 @@
 <template>
-  <form v-on:submit="saveTopic()">
+  <form v-on:submit.prevent="saveTopic(); setTopicTitle();">
     <div class="field">
       <div id="input-div">
         <input
@@ -35,10 +35,13 @@ export default {
       forumService.create(this.forum).then((response) => {
         if (response.status === 200) {
           window.alert("Topic Created!");
-          this.$router.push("/forum-view");
+          this.$router.push("/forum-detail");
         }
       });
     },
+    setTopicTitle() {
+      this.$store.commit('SET_TOPIC_TITLE', this.forum.forumTopic)
+    }
   },
 };
 </script>
