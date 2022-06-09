@@ -56,7 +56,7 @@ h3 {
   background-image: -ms-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
   background-image: -o-linear-gradient(bottom, #c7ecd3 15%, #78c2ad 100%);
   background-image: linear-gradient(to top, #c7ecd3 15%, #78c2ad 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#86cacd', endColorstr='#c7ecd3');
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#78c2ad', endColorstr='#c7ecd3');
 
   border: solid 1px rgba(0, 0, 0, 0.5);
   -webkit-border-radius: 20px;
