@@ -13,8 +13,6 @@ VALUES ('The Lovely Bones', 'Alice Shebold', '0316168815', 'Susie Salmon', 'Fict
 INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Life of Pi', 'Yann Martel ', '9780156027328', 'Pi Patel', 'Fiction', 'tiger', 'false');
 INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
-VALUES ('The Broker', 'John Grisham', '0345532007', 'Joel Backman', 'Crime', 'CIA', 'false');
-INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('Hannibal', 'Thomas Harris', '0440224675', 'Hannibal Lecter', 'Crime', 'cannibal', 'false');
 INSERT INTO book (title, author, isbn, character, genre, keyword, new_release)
 VALUES ('The Lord of the Rings', 'J.R.R. Tolkien', '0358439191', 'Frodo', 'Fantasy', 'Middle earth', 'false');
