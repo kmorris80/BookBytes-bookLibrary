@@ -9,9 +9,9 @@
       </thead>
 
       <tbody>
-        <tr class="table-primary" v-for="topic in this.topics" v-bind:key="topic.id">
+        <tr class="table-light" v-for="topic in this.topics" v-bind:key="topic.id">
           <td width="80%">
-            <router-link
+            <router-link 
               v-bind:to="{ name: 'forum-detail', params: {id: topic.forumId} }"
             >
               {{ topic.forumTopic }}</router-link
@@ -82,5 +82,8 @@ tbody tr:nth-child(even) {
 }
 th{
   font-size: x-large; 
+}
+.link{
+  text-decoration-color: blanchedalmond;
 }
 </style>

@@ -22,6 +22,17 @@ export default new Vuex.Store({
     user: currentUser || {},
     addedBooks: [],
     username: '',
+    messages: [
+      {
+        title: 'I LOVE this book!',
+        content: 'Let me just say, this book was such a smooth read! Really, it was like reading butter. I could not believe it! I guess you could say "I could not believe it was not butter!"'
+      },
+      {
+        title: 'Do NOT listen to that person above',
+        content: 'This book was anything but smooth. It felt like I was driving on an unpaved road in the Himalayas and let me tell you, I have done that before so I really know what I am talking about. You could say I am an expert!'
+      },
+  ],
+    topicTitle: '',
     messageTitle: "",
     messageContent: ""
   },
@@ -56,6 +67,12 @@ export default new Vuex.Store({
     SET_MESSAGE_CONTENT(state, messageContent) {
       state.messageContent = messageContent;
     },
+    SAVE_MESSAGE(state, message) {
+      state.messages.push(message);
+    },
+    SET_TOPIC_TITLE(state, topicTitle){
+      state.topicTitle = topicTitle;
+    }
 
   },
 })
